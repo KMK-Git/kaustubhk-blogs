@@ -1,14 +1,14 @@
-import React from "react"
-import { graphql } from "gatsby";
-import BlogCard from "./blogcard";
-import SiteWrapper from "./sitewrapper";
+import React from 'react';
+import { graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import BlogCard from './blogcard';
+import SiteWrapper from './sitewrapper';
 
-
-export default function BlogPage({ data: { mdx } }) {
-    const blogCard = <BlogCard frontmatter={mdx.frontmatter} body={mdx.body} />
-    return (
-        <SiteWrapper siteContent={blogCard} />
-    );
+export default function BlogPage({ data: { mdx: { frontmatter, body } } }) {
+  const blogCard = <BlogCard frontmatter={frontmatter} body={body} />;
+  return (
+    <SiteWrapper siteContent={blogCard} />
+  );
 }
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
@@ -21,3 +21,14 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+BlogPage.propTypes = {
+  data: PropTypes.exact({
+    mdx: PropTypes.exact({
+      frontmatter: PropTypes.exact({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+      body: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

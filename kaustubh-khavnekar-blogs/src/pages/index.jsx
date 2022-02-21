@@ -1,7 +1,7 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import NoteList from "../components/notelist";
-import SiteWrapper from "../components/sitewrapper";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import NoteList from '../components/notelist';
+import SiteWrapper from '../components/sitewrapper';
 
 export default function Template() {
   const pageQuery = useStaticQuery(graphql`
@@ -40,7 +40,11 @@ export default function Template() {
       }
     }
   `);
-  const externalLinks = pageQuery.externalLinksQuery.details.map((linkDetail) => ({ ...linkDetail, external: true }));
+  const externalLinks = pageQuery.externalLinksQuery.details.map((linkDetail) => (
+    {
+      ...linkDetail,
+      external: true,
+    }));
   const blogs = pageQuery.blogsQuery.nodes.map((blog) => ({
     slug: blog.frontmatter.slug,
     date: blog.frontmatter.date,
@@ -49,17 +53,16 @@ export default function Template() {
     priority: blog.frontmatter.priority,
     id: blog.id,
     previewImage: blog.frontmatter.previewImage,
-    external: false
+    external: false,
   }));
   const notes = [...externalLinks, ...blogs];
   notes.sort((a, b) => {
     if (a.priority !== b.priority) {
       return a.priority - b.priority;
-    } else {
-      return new Date(b.date) - new Date(a.date);
     }
+    return new Date(b.date) - new Date(a.date);
   });
-  const renderedNotes = <NoteList notes={notes}></NoteList>;
+  const renderedNotes = <NoteList notes={notes} />;
   return (
     <SiteWrapper siteContent={renderedNotes} />
   );

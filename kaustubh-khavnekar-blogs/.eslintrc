@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "airbnb",
+        "airbnb/hooks"
+    ],
+    "rules": {
+        "no-anonymous-exports-page-templates": "warn",
+        "limited-exports-page-templates": "warn"
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    }
+}

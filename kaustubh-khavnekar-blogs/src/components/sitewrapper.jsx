@@ -1,29 +1,34 @@
-import React from "react"
+import React from 'react';
 import Box from '@mui/material/Box';
-import { woodBackground } from "./styles";
-import Header from "./header";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import "@fontsource/roboto";
+import PropTypes from 'prop-types';
+import { woodBackground } from './styles';
+import Header from './header';
+import '@fontsource/roboto';
 
-
-export default function SiteWrapper(props) {
+export default function SiteWrapper({ siteContent }) {
   const theme = createTheme({
     typography: {
       allVariants: {
-        fontFamily: 'Roboto'
+        fontFamily: 'Roboto',
       },
     },
   });
   return (
     <ThemeProvider theme={theme}>
-      <React.Fragment>
+      <>
         <CssBaseline />
         <Box component="div" sx={woodBackground}>
           <Header />
-          {props.siteContent}
+          {siteContent}
         </Box>
-      </React.Fragment>
+      </>
     </ThemeProvider>
   );
 }
+
+SiteWrapper.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  siteContent: PropTypes.any.isRequired,
+};
