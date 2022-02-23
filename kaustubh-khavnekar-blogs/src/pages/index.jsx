@@ -19,6 +19,8 @@ export default function Template() {
           summary
           title
           id
+          cardColors
+          darkCardColors
         }
       }
       blogsQuery: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
@@ -34,6 +36,8 @@ export default function Template() {
                 gatsbyImageData(layout: CONSTRAINED, width: 250)
               }
             }
+            cardColors
+            darkCardColors
           }
           id
         }
@@ -54,6 +58,8 @@ export default function Template() {
     id: blog.id,
     previewImage: blog.frontmatter.previewImage,
     external: false,
+    cardColors: blog.frontmatter.cardColors,
+    darkCardColors: blog.frontmatter.darkCardColors,
   }));
   const notes = [...externalLinks, ...blogs];
   notes.sort((a, b) => {

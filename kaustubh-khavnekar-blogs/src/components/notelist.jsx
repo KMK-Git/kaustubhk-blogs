@@ -14,6 +14,8 @@ export default function NoteList({ notes }) {
           slug={note.slug}
           external={note.external}
           previewImage={note.previewImage}
+          cardColors={note.cardColors}
+          darkCardColors={note.darkCardColors}
         />
       </Grid>
     </React.Fragment>
@@ -38,5 +40,10 @@ NoteList.propTypes = {
     slug: PropTypes.string.isRequired,
     external: PropTypes.bool.isRequired,
     previewImage: PropTypes.object.isRequired,
+    date: PropTypes.string.isRequired,
+    priority: PropTypes.number.isRequired,
+    cardColors: PropTypes.string.isRequired,
+    darkCardColors: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };

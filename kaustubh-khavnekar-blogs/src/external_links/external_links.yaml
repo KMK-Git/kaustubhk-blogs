@@ -6,6 +6,8 @@ details:
     priority: 3
     id: "el2"
     previewImage: "../images/medium/preview4.png"
+    cardColors: "#fff740,#7afcff,#ff7eb9"
+    darkCardColors: "#b3aa00,#00b0b3,#b30050"
   - slug: "https://awstip.com/using-the-aws-cloudformation-registry-to-manage-your-own-custom-cloudformation-resource-types-part-aa1b298ed22e"
     date: "2022-01-07"
     title: "Using the AWS CloudFormation registry to manage your own custom CloudFormation Resource Types: Part 2"
@@ -13,6 +15,8 @@ details:
     priority: 3
     id: "el3"
     previewImage: "../images/medium/preview3.png"
+    cardColors: "#fff740,#7afcff"
+    darkCardColors: "#b3aa00,#00b0b3"
   - slug: "https://awstip.com/using-the-aws-cloudformation-registry-to-manage-your-own-custom-cloudformation-resource-types-part-b3c8f78d1189"
     date: "2021-06-29"
     title: "Using the AWS CloudFormation registry to manage your own custom CloudFormation Resource Types: Part 1"
@@ -20,6 +24,8 @@ details:
     priority: 3
     id: "el4"
     previewImage: "../images/medium/preview2.png"
+    cardColors: "#fff740,#7afcff"
+    darkCardColors: "#b3aa00,#00b0b3"
   - slug: "https://kaustubhkhavnekar.medium.com/create-ubuntu-20-04-ami-hardened-according-to-cis-benchmarks-using-terraform-and-ansible-d870aca9c8d0"
     date: "2021-04-17"
     title: "Create Ubuntu 20.04 AMI hardened according to CIS benchmarks using Terraform and Ansible"
@@ -27,3 +33,5 @@ details:
     priority: 3
     id: "el5"
     previewImage: "../images/medium/preview1.png"
+    cardColors: "#fff740,#7afcff,#ff7eb9"
+    darkCardColors: "#b3aa00,#00b0b3,#b30050"

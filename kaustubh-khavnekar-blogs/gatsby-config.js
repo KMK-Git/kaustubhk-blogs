@@ -13,8 +13,10 @@ const gatsbyRequiredRules = path.join(
 
 module.exports = {
   siteMetadata: {
-    title: 'Kaustubh Khavnekar Blogs',
     siteUrl: 'https://blogs.kaustubhk.com',
+    title: 'Kaustubh Khavnekar Blogs',
+    description: 'A personal website for Kaustubh Khavnekar. The website is hosted using various AWS Services with a frontend made using React and Gatsby.',
+    image: '/static/icon.png',
   },
   plugins: ['gatsby-plugin-emotion', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet', 'gatsby-plugin-sitemap', {
     resolve: 'gatsby-plugin-manifest',

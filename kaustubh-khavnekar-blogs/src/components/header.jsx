@@ -4,9 +4,13 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Link } from 'gatsby';
-import { cardHeaderStyle } from './styles';
+import { cardHeaderStyle, darkCardHeaderColor } from './styles';
+import isDarkModeEnabled from '../utils/dark-mode';
 
 export default function Header() {
+  if (isDarkModeEnabled()) {
+    Object.assign(cardHeaderStyle, darkCardHeaderColor);
+  }
   return (
     <Grid
       container

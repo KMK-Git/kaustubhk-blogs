@@ -6,23 +6,29 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
+import isDarkModeEnabled from '../utils/dark-mode';
 import {
-  cardColor1, cardColor2, cardColor3, cardRotate1, cardRotate2, cardRotate3, cardCommon,
+  cardRotate1, cardRotate2, cardRotate3, cardCommon,
 } from './styles';
 
 export default function Note({
-  previewImage, title, summary, external, slug,
+  previewImage, title, summary, external, slug, cardColors, darkCardColors,
 }) {
   const [cardStyle, setCardStyle] = useState({});
 
   const calculateCardStyle = () => {
-    const cardColorList = [cardColor1, cardColor2, cardColor3];
+    let cardColorList;
+    if (isDarkModeEnabled()) {
+      cardColorList = darkCardColors.split(',');
+    } else {
+      cardColorList = cardColors.split(',');
+    }
     const cardColor = cardColorList[Math.floor(Math.random() * cardColorList.length)];
     const cardRotateList = [cardRotate1, cardRotate2, cardRotate3];
     const cardRotate = cardRotateList[Math.floor(Math.random() * cardColorList.length)];
-    setCardStyle({ ...cardColor, ...cardRotate, ...cardCommon });
+    setCardStyle({ backgroundColor: cardColor, ...cardRotate, ...cardCommon });
   };
-  useEffect(calculateCardStyle, []);
+  useEffect(calculateCardStyle, [cardColors, darkCardColors]);
   let image;
   if (previewImage) {
     image = (
@@ -75,4 +81,6 @@ Note.propTypes = {
       gatsbyImageData: PropTypes.any.isRequired,
     }).isRequired,
   }).isRequired,
+  cardColors: PropTypes.string.isRequired,
+  darkCardColors: PropTypes.string.isRequired,
 };
