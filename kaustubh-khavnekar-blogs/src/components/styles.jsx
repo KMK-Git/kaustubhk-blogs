@@ -20,7 +20,7 @@ export const cardHeaderStyle = {
   maxHeight: 50,
   display: 'flex',
   flexDirection: 'row',
-  marginTop: '5px',
+  marginTop: 1,
   alignItems: 'center',
   justifyContent: 'center',
 };
@@ -48,6 +48,17 @@ export const cardCommon = {
     transform: 'scale(1.15)',
   },
   transition: 'transform .2s linear',
+};
+
+export const videoCardCommon = {
+  maxWidth: 800,
+  marginTop: 10,
+  '&:hover': {
+    'z-index': 4,
+    transform: 'scale(1.15)',
+  },
+  transition: 'transform .2s linear',
+  align: 'center',
 };
 
 export const cardBlogStyle = {
