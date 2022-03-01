@@ -1,0 +1,813 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeHighlight renders correctly 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-q95l03{text-align:left;margin:1em 0;padding:0.5em;overflow:scroll;}",
+      }
+    }
+    data-emotion="css q95l03"
+  />,
+  <pre
+    className="prism-code language-python css-q95l03"
+    style={
+      Object {
+        "backgroundColor": "#1E1E1E",
+        "color": "#9CDCFE",
+      }
+    }
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-xtqww5{display:table-row;}",
+        }
+      }
+      data-emotion="css xtqww5"
+    />
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-1xj3q7t{display:table-cell;text-align:right;padding-right:1em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5;}",
+          }
+        }
+        data-emotion="css 1xj3q7t"
+      />
+      <span
+        className="css-1xj3q7t"
+      >
+        1
+      </span>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-xy8ieu{display:table-cell;}",
+          }
+        }
+        data-emotion="css xy8ieu"
+      />
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+          cdk_codepipeline 
+        </span>
+        <span
+          className="token operator"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          className="token plain"
+        >
+           pipelines
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          .
+        </span>
+        <span
+          className="token plain"
+        >
+          CodePipeline
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          (
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        2
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                  self
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        3
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                  
+        </span>
+        <span
+          className="token string"
+          style={
+            Object {
+              "color": "rgb(206, 145, 120)",
+            }
+          }
+        >
+          "Pipeline"
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        4
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                  synth
+        </span>
+        <span
+          className="token operator"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          className="token plain"
+        >
+          pipelines
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          .
+        </span>
+        <span
+          className="token plain"
+        >
+          ShellStep
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          (
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        5
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      
+        </span>
+        <span
+          className="token string"
+          style={
+            Object {
+              "color": "rgb(206, 145, 120)",
+            }
+          }
+        >
+          "Synth"
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        6
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      
+        </span>
+        <span
+          className="token builtin"
+          style={
+            Object {
+              "color": "rgb(86, 156, 214)",
+            }
+          }
+        >
+          input
+        </span>
+        <span
+          className="token operator"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          className="token plain"
+        >
+          source
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        7
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      install_commands
+        </span>
+        <span
+          className="token operator"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          [
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        8
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                          
+        </span>
+        <span
+          className="token string"
+          style={
+            Object {
+              "color": "rgb(206, 145, 120)",
+            }
+          }
+        >
+          "pip install -r requirements.txt"
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        9
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                          
+        </span>
+        <span
+          className="token string"
+          style={
+            Object {
+              "color": "rgb(206, 145, 120)",
+            }
+          }
+        >
+          "npm install -g aws-cdk"
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        10
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ]
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        11
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      commands
+        </span>
+        <span
+          className="token operator"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          =
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          [
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        12
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                          
+        </span>
+        <span
+          className="token string"
+          style={
+            Object {
+              "color": "rgb(206, 145, 120)",
+            }
+          }
+        >
+          "cdk synth"
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        13
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                      
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ]
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        14
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+                  
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          )
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          ,
+        </span>
+        <span
+          className="token plain"
+        >
+          
+        </span>
+      </span>
+    </div>
+    <div
+      className="token-line css-xtqww5"
+      style={
+        Object {
+          "backgroundColor": null,
+          "color": "#9CDCFE",
+        }
+      }
+    >
+      <span
+        className="css-1xj3q7t"
+      >
+        15
+      </span>
+      <span
+        className="css-xy8ieu"
+      >
+        <span
+          className="token plain"
+        >
+              
+        </span>
+        <span
+          className="token punctuation"
+          style={
+            Object {
+              "color": "rgb(212, 212, 212)",
+            }
+          }
+        >
+          )
+        </span>
+      </span>
+    </div>
+  </pre>,
+]
+`;

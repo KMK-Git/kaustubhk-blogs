@@ -11,14 +11,65 @@ const gatsbyRequiredRules = path.join(
   'eslint-rules',
 );
 
+const siteGlobalMetadata = {
+  siteUrl: 'https://blogs.kaustubhk.com',
+  title: 'Kaustubh Khavnekar Blogs',
+  description: 'A personal website for Kaustubh Khavnekar. The website is hosted using various AWS Services with a frontend made using React and Gatsby.',
+  image: '/static/icon.png',
+};
+
 module.exports = {
-  siteMetadata: {
-    siteUrl: 'https://blogs.kaustubhk.com',
-    title: 'Kaustubh Khavnekar Blogs',
-    description: 'A personal website for Kaustubh Khavnekar. The website is hosted using various AWS Services with a frontend made using React and Gatsby.',
-    image: '/static/icon.png',
-  },
-  plugins: ['gatsby-plugin-emotion', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet', 'gatsby-plugin-sitemap', {
+  siteMetadata: siteGlobalMetadata,
+  plugins: [{
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      policy: [{ userAgent: '*', allow: '/' }],
+    },
+  }, {
+    resolve: 'gatsby-plugin-sitemap',
+    options: {
+      query: `
+      {
+        allSitePage {
+          nodes {
+            path
+          }
+        }
+        allMdx {
+          nodes {
+            frontmatter {
+              lastModified(formatString: "YYYY-MM-DD")
+              slug
+            }
+          }
+        }
+      }      
+    `,
+      resolveSiteUrl: () => siteGlobalMetadata.siteUrl,
+      resolvePages: ({
+        allSitePage: { nodes: allPages },
+        allMdx: { nodes: allArticles },
+      }) => {
+        let maxLastModified = null;
+        /* eslint-disable no-param-reassign */
+        const siteMap = allArticles.reduce((prevMap, node) => {
+          const { slug, lastModified } = node.frontmatter;
+          prevMap[slug] = node.frontmatter;
+          if (maxLastModified === null || new Date(maxLastModified) < new Date(lastModified)) {
+            maxLastModified = lastModified;
+          }
+          return prevMap;
+        }, {});
+        /* eslint-enable no-param-reassign */
+        siteMap['/'] = { slug: '/', lastModified: maxLastModified };
+        return allPages.map((page) => ({ ...page, ...siteMap[page.path] }));
+      },
+      serialize: ({ slug, lastModified }) => ({
+        url: slug,
+        lastmod: lastModified,
+      }),
+    },
+  }, 'gatsby-plugin-emotion', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet', {
     resolve: 'gatsby-plugin-manifest',
     options: {
       name: "Kaustubh Khavnekar's blogs",

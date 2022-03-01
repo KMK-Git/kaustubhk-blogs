@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note renders correctly 1`] = `
+<a
+  href="/blog/test"
+  style={
+    Object {
+      "textDecoration": "none",
+    }
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-d9tvmc-MuiCard-root{overflow:hidden;background-color:#fff740;-webkit-transform:rotate(3deg);-moz-transform:rotate(3deg);-ms-transform:rotate(3deg);transform:rotate(3deg);max-width:345px;-webkit-transition:-webkit-transform .2s linear;transition:transform .2s linear;}.css-d9tvmc-MuiCard-root:hover{z-index:4;-webkit-transform:scale(1.15);-moz-transform:scale(1.15);-ms-transform:scale(1.15);transform:scale(1.15);}",
+      }
+    }
+    data-emotion="css d9tvmc-MuiCard-root"
+  />
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-1qabqs6-MuiPaper-root-MuiCard-root{background-color:#fff;color:rgba(0, 0, 0, 0.87);-webkit-transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border-radius:4px;box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);overflow:hidden;background-color:#fff740;-webkit-transform:rotate(3deg);-moz-transform:rotate(3deg);-ms-transform:rotate(3deg);transform:rotate(3deg);max-width:345px;-webkit-transition:-webkit-transform .2s linear;transition:transform .2s linear;}.css-1qabqs6-MuiPaper-root-MuiCard-root:hover{z-index:4;-webkit-transform:scale(1.15);-moz-transform:scale(1.15);-ms-transform:scale(1.15);transform:scale(1.15);}",
+      }
+    }
+    data-emotion="css 1qabqs6-MuiPaper-root-MuiCard-root"
+  />
+  <div
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation8 MuiCard-root css-1qabqs6-MuiPaper-root-MuiCard-root"
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-46bh2p-MuiCardContent-root{padding:16px;}.css-46bh2p-MuiCardContent-root:last-child{padding-bottom:24px;}",
+        }
+      }
+      data-emotion="css 46bh2p-MuiCardContent-root"
+    />
+    <div
+      className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+    >
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-h93ljk-MuiTypography-root{margin:0;font-family:\\"Roboto\\",\\"Helvetica\\",\\"Arial\\",sans-serif;font-weight:400;font-size:1.5rem;line-height:1.334;letter-spacing:0em;margin-bottom:0.35em;}",
+          }
+        }
+        data-emotion="css h93ljk-MuiTypography-root"
+      />
+      <div
+        className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+      >
+        Title
+      </div>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-16cvb1l-MuiCardMedia-root{display:block;-webkit-background-size:cover;background-size:cover;background-repeat:no-repeat;-webkit-background-position:center;background-position:center;}",
+        }
+      }
+      data-emotion="css 16cvb1l-MuiCardMedia-root"
+    />
+    <div
+      className="MuiCardMedia-root css-16cvb1l-MuiCardMedia-root"
+    >
+      <div
+        className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+        data-gatsby-image-wrapper=""
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "display": "inline-block",
+            "overflow": "hidden",
+            "position": "relative",
+            "verticalAlign": "top",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "block",
+              "maxWidth": 340,
+            }
+          }
+        >
+          <img
+            alt=""
+            aria-hidden="true"
+            role="presentation"
+            src="data:image/svg+xml;charset=utf-8,%3Csvg height='143' width='340' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+            style={
+              Object {
+                "display": "block",
+                "maxWidth": "100%",
+                "position": "static",
+              }
+            }
+          />
+        </div>
+        <div
+          aria-hidden={true}
+          data-placeholder-image=""
+          style={
+            Object {
+              "height": "100%",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
+              "width": "100%",
+            }
+          }
+        />
+        <picture>
+          <source
+            data-srcset="/static/808f866ec80fb7744a46a37fd63265fe/a6e1b/preview4.webp 85w,/static/808f866ec80fb7744a46a37fd63265fe/20fe9/preview4.webp 170w,/static/808f866ec80fb7744a46a37fd63265fe/d0f2f/preview4.webp 340w"
+            sizes="(min-width: 340px) 340px, 100vw"
+            type="image/webp"
+          />
+          <img
+            alt="CardImage"
+            data-gatsby-image-ssr=""
+            data-main-image=""
+            data-src="/static/808f866ec80fb7744a46a37fd63265fe/45641/preview4.png"
+            data-srcset="/static/808f866ec80fb7744a46a37fd63265fe/dcd12/preview4.png 85w,/static/808f866ec80fb7744a46a37fd63265fe/98502/preview4.png 170w,/static/808f866ec80fb7744a46a37fd63265fe/45641/preview4.png 340w"
+            decoding="async"
+            loading="lazy"
+            onLoad={[Function]}
+            sizes="(min-width: 340px) 340px, 100vw"
+            style={
+              Object {
+                "backgroundColor": undefined,
+                "height": "100%",
+                "left": 0,
+                "objectFit": undefined,
+                "objectPosition": undefined,
+                "opacity": 0,
+                "position": "absolute",
+                "top": 0,
+                "transform": "translateZ(0)",
+                "transition": "opacity 250ms linear",
+                "width": "100%",
+                "willChange": "opacity",
+              }
+            }
+          />
+        </picture>
+        <noscript>
+          <picture>
+            <source
+              sizes="(min-width: 340px) 340px, 100vw"
+              srcSet="/static/808f866ec80fb7744a46a37fd63265fe/a6e1b/preview4.webp 85w,/static/808f866ec80fb7744a46a37fd63265fe/20fe9/preview4.webp 170w,/static/808f866ec80fb7744a46a37fd63265fe/d0f2f/preview4.webp 340w"
+              type="image/webp"
+            />
+            <img
+              alt="CardImage"
+              data-gatsby-image-ssr=""
+              data-main-image=""
+              decoding="async"
+              loading="lazy"
+              onLoad={[Function]}
+              sizes="(min-width: 340px) 340px, 100vw"
+              src="/static/808f866ec80fb7744a46a37fd63265fe/45641/preview4.png"
+              srcSet="/static/808f866ec80fb7744a46a37fd63265fe/dcd12/preview4.png 85w,/static/808f866ec80fb7744a46a37fd63265fe/98502/preview4.png 170w,/static/808f866ec80fb7744a46a37fd63265fe/45641/preview4.png 340w"
+              style={
+                Object {
+                  "backgroundColor": undefined,
+                  "height": "100%",
+                  "left": 0,
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "opacity": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "transform": "translateZ(0)",
+                  "transition": "opacity 250ms linear",
+                  "width": "100%",
+                  "willChange": "opacity",
+                }
+              }
+            />
+          </picture>
+        </noscript>
+        <script
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "const t=\\"undefined\\"!=typeof HTMLImageElement&&\\"loading\\"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll(\\"img[data-main-image]\\");for(let e of t){e.dataset.src&&(e.setAttribute(\\"src\\",e.dataset.src),e.removeAttribute(\\"data-src\\")),e.dataset.srcset&&(e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\"));const t=e.parentNode.querySelectorAll(\\"source[data-srcset]\\");for(let e of t)e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\");e.complete&&(e.style.opacity=1)}}",
+            }
+          }
+          type="module"
+        />
+      </div>
+    </div>
+    <div
+      className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+    >
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-e784if-MuiTypography-root{margin:0;font-family:\\"Roboto\\",\\"Helvetica\\",\\"Arial\\",sans-serif;font-weight:400;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;}",
+          }
+        }
+        data-emotion="css e784if-MuiTypography-root"
+      />
+      <p
+        className="MuiTypography-root MuiTypography-body2 css-e784if-MuiTypography-root"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Summary",
+          }
+        }
+      />
+    </div>
+  </div>
+</a>
+`;

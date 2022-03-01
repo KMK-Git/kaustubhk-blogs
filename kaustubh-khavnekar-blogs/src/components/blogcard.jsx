@@ -25,7 +25,6 @@ export default function BlogCard({ frontmatter, body }) {
           <Card sx={cardStyle} elevation={8}>
             <CardContent>
               <MDXProvider components={shortcodes}>
-                {/* <MDXProvider> */}
                 <MDXRenderer frontmatter={frontmatter}>{body}</MDXRenderer>
               </MDXProvider>
             </CardContent>

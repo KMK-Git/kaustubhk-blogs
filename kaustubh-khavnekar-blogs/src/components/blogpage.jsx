@@ -76,7 +76,6 @@ BlogPage.propTypes = {
         previewImage: PropTypes.object.isRequired,
       }).isRequired,
       body: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
     }).isRequired,
     site: PropTypes.exact({
       siteMetadata: PropTypes.exact({
