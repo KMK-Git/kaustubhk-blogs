@@ -1,0 +1,16 @@
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.venv
+*.egg-info
+.idea
+locals.json
+.coverage
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+sam.out
+# Ideally should be included, but I don't want to expose AWS account number
+cdk.context.json

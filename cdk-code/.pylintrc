@@ -1,0 +1,4 @@
+[MESSAGES CONTROL]
+
+# Duplicate code gives too many false positives currently. Monitor https://github.com/PyCQA/pylint/issues/214, to check if this can be removed
+disable=duplicate-code
