@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Box from '@mui/material/Box';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -13,6 +13,26 @@ import isDarkModeEnabled from '../utils/dark-mode';
 import '@fontsource/roboto';
 
 export default function SiteWrapper({ siteContent }) {
+  const [backgroundStyle, setBackgroundStyle] = useState({});
+  const calculateBackgroundStyle = () => {
+    const style = {
+      globalCss: `
+    a {
+      color: #c19a6b;
+    }`,
+      background: woodBackground,
+    };
+    if (isDarkModeEnabled()) {
+      Object.assign(style.background, darkWoodBackgroundColor);
+      style.globalCss = style.globalCss.concat(`
+          img {
+            filter: brightness(.8) contrast(1.2);
+          }
+      `);
+    }
+    setBackgroundStyle(style);
+  };
+  useEffect(calculateBackgroundStyle, []);
   const pageQuery = useStaticQuery(graphql`
   query metadataQuery {
     site {
@@ -32,18 +52,7 @@ export default function SiteWrapper({ siteContent }) {
       },
     },
   });
-  let globalCss = `
-  a {
-    color: #c19a6b;
-  }`;
-  if (isDarkModeEnabled()) {
-    Object.assign(woodBackground, darkWoodBackgroundColor);
-    globalCss = globalCss.concat(`
-        img {
-          filter: brightness(.8) contrast(1.2);
-        }
-    `);
-  }
+
   const { pathname } = useLocation();
   const seo = {
     image: `${pageQuery.site.siteMetadata.siteUrl}${pageQuery.site.siteMetadata.image}`,
@@ -63,9 +72,9 @@ export default function SiteWrapper({ siteContent }) {
       </Helmet>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box component="div" sx={woodBackground}>
+        <Box component="div" sx={backgroundStyle.background}>
           <Header />
-          <Global styles={css(globalCss)} />
+          <Global styles={css(backgroundStyle.globalCss)} />
           {siteContent}
         </Box>
       </ThemeProvider>

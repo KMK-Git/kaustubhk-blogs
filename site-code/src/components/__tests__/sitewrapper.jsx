@@ -167,7 +167,7 @@ const notes = [{
 const renderedNotes = <NoteList notes={notes} />;
 
 describe('SiteWrapper', () => {
-  it('renders correctly', () => {
+  it('renders correctly', async () => {
     let tree;
     act(() => {
       tree = renderer

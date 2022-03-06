@@ -4,7 +4,7 @@ import vsDark from 'prism-react-renderer/themes/vsDark';
 import CodeHighlight from '../codehighlight';
 
 describe('CodeHighlight', () => {
-  it('renders correctly', () => {
+  it('renders correctly', async () => {
     const exampleCode = `cdk_codepipeline = pipelines.CodePipeline(
         self,
         "Pipeline",

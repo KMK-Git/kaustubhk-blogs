@@ -1,53 +1,121 @@
 ---
 slug: "/blog/my-new-blog-website"
-date: "2022-02-20"
-lastModified: "2022-02-20"
+date: "2022-03-06"
+lastModified: "2022-03-06"
 title: "Using Gatsby and AWS CDK to create my new Blogs Website"
 summary: "A look at the code, architecture, and deployment pipeline of my new blogs website"
 priority: 1
-previewImage: "../images/medium/preview4.png"
+previewImage: "../images/icon.png"
 cardColors: "#fff740,#7afcff,#ff7eb9"
 darkCardColors: "#b3aa00,#00b0b3,#b30050"
 ---
-
+import Button from '@mui/material/Button';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 
+<h1>{props.frontmatter.title}</h1>
 
-# Using Gatsby and AWS CDK to create my new Blogs Website
+<em>Published on {props.frontmatter.date}</em>
 
-![KaustubhK](../images/icon.png)
+## Why did I create my own Blogs website?
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- Exploring some new frameworks and approaches I haven't worked with before and making incremental improvements to try something new.
+- More control over my articles' styling. I can use markdown to write a few simple sentences with basic formatting. Alternatively, the support for JSX allows the addition of arbitrary React components.
+- Creating a single repository for all my blogs. The website also supports adding links to my external blogs.
+- Tracking all changes through GitHub commit history.
+- Potential for other people to write blogs by raising Pull Requests.
+- and many other reasons.
 
-# The Flow
 
-[![enter image description here][1]][1]
 
-# Stages
+## Architecture Diagram - High-Level Overview
 
-## Source
-[![enter image description here][2]][2]
+![Architecture Diagram](../images/article01/diagram.png)
 
-export const exampleCode = `cdk_codepipeline = pipelines.CodePipeline(
-    self,
-    "Pipeline",
-    synth=pipelines.ShellStep(
-        "Synth",
-        input=source,
-        install_commands=[
-            "pip install -r requirements.txt",
-            "npm install -g aws-cdk",
-        ],
-        commands=[
-            "cdk synth",
-        ],
-    ),
-)`;
+### Website Architecture
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>1</Button>
+<b>Access from:</b> Mobiles, tablets, laptops, and any other device with a web browser.
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>2</Button>
+<b>Amazon CloudFront:</b> A global CDN service that caches the website content and reduces website latency.
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>3</Button>
+<b>Amazon S3:</b> It stores the website's static content. Read access is provided to the CloudFront distribution's origin access identity to avoid making the bucket public.
+<br/>
+
+There are currently no dynamic components in the website architecture. The website is a purely static React Gatsby application.
+
+### CI/CD pipeline
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>A</Button>
+<b>Source Code:</b> The GitHub repository contains a React application created using Gatsby. The blog articles are written in MDX, which supports both markdown and JSX. The website infrastructure and deployment pipeline are defined using AWS CDK. Any push to the repository's main branch triggers the pipeline.
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>B</Button>
+<b>Install/Lint/Format/Test/Build/Synth</b>: The following operations are done as part of this step:
+
+- Installing application dependencies
+- Formatting/Linting the React code
+- Testing the React application
+- Building the React application
+- Formatting/Linting the CDK code
+- Testing the CDK application
+- Synthesize the CDK application (Generate CloudFormation template)
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>C</Button>
+<b>Self-mutation:</b> Update the pipeline if there are any changes in the CDK pipeline code
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>D</Button>
+<b>Assets:</b> Upload the CloudFormation template and any other assets to S3.
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>E</Button>
+<b>Permissions broadening:</b> Ask for manual approval if new AWS IAM permissions are granted or security group rules are created.
+<br/>
+
+<Button variant="contained" style={{"margin": "1em", "minWidth": "36.5px", "backgroundColor": "#007CBD"}}>F</Button>
+<b>Deployment:</b> The synthesized AWS CloudFormation stack(s) are created/updated.
+
+## Gatsby
+
+[Gatsby](https://www.gatsbyjs.com/) is a framework for frontend web applications. A detailed explanation of how Gatsby works can be found [here](https://www.gatsbyjs.com/how-it-works/).
+Besides Gatsby's base features, here is a list of features I have added using Gatsby plugins:
+- `robots.txt` file using [gatsby-plugin-robots-txt](https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/).
+- Sitemap using [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/).
+- Web app manifest using [gatsby-plugin-manifest](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/).
+- CSS in JS support using [gatsby-plugin-emotion](https://www.gatsbyjs.com/plugins/gatsby-plugin-emotion/).
+- Responsive images using [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/).
+- Adding `<head>` tag using [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet). 
+- MDX rendering for blog posts using [gatsby-plugin-mdx](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/).
+- Image processing using [gatsby-plugin-sharp](https://www.gatsbyjs.com/plugins/gatsby-plugin-sharp/) and [gatsby-transformer-sharp](https://www.gatsbyjs.com/plugins/gatsby-transformer-sharp/).
+- Querying YAML files using [gatsby-transformer-yaml](https://www.gatsbyjs.com/plugins/gatsby-transformer-yaml/) to manage links to external blogs.
+- Adding images to markdown using [gatsby-remark-images](https://www.gatsbyjs.com/plugins/gatsby-remark-images/).
+- Make website more resistant to bad network connections using [gatsby-plugin-offline](https://www.gatsbyjs.com/plugins/gatsby-plugin-offline/).
+- Linting with ESLint using [gatsby-plugin-eslint](https://www.gatsbyjs.com/plugins/gatsby-plugin-eslint/).
+
+## Other Frontend features
+
+- The application supports dark mode based on a user's browser/system preference.
+![Light Mode](../images/article01/lightmode.png)
+![Dark Mode](../images/article01/darkmode.png)
+- Embed code snippets with syntax highlighting in articles using [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer).
+
+export const exampleCode = `message = "Hello World!"
+print(message)`;
 
 <CodeHighlight theme={vsDark} code={exampleCode} language="python" />
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- An auto generated [index page](/).
 
 
-  [1]: https://i.stack.imgur.com/zx46a.png
-  [2]: https://i.stack.imgur.com/usJ06.png
+## AWS Cloud Development Kit (CDK)
+
+[AWS CDK](https://aws.amazon.com/cdk/) is a software development framework used to define cloud application resources using programming languages like Python, Typescript, Java, etc. This application uses Python.
+
+The resource defined in AWS CDK for this application can be differentiated into two different categories:
+- Application resources. These resources are used for the actual website hosting (1, 2, and 3 in the above diagram). The code can be viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/application_stacks/static_website_stack.py), and is mainly based on an [AWS example](https://github.com/aws-samples/aws-cdk-examples/blob/master/typescript/static-site/static-site.ts).
+- CI/CD pipeline resources. These resources are used for continuous integration and deployment of any changes pushed to the repository (A, B, C, D, E, and F in the above diagram). They are defined using the [CDK pipelines](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.pipelines/README.html) module. The code can viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/pipeline_stack/pipeline.py).

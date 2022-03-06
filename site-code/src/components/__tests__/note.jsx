@@ -5,7 +5,7 @@ import Note from '../note';
 const { act } = renderer;
 
 describe('Note', () => {
-  it('renders correctly', () => {
+  it('renders correctly', async () => {
     let tree;
     act(() => {
       tree = renderer

@@ -5,7 +5,7 @@ import VideoNote from '../videonote';
 const { act } = renderer;
 
 describe('VideoNote', () => {
-  it('renders correctly', () => {
+  it('renders correctly', async () => {
     let tree;
     act(() => {
       tree = renderer

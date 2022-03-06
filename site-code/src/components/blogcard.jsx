@@ -9,8 +9,9 @@ import PropTypes from 'prop-types';
 import { cardBlogStyle, darkCardBlogStyle } from './styles';
 import isDarkModeEnabled from '../utils/dark-mode';
 import CodeHighlight from './codehighlight';
+import MdxLink from './mdxlink';
 
-const shortcodes = { CodeHighlight };
+const componentMappings = { CodeHighlight, a: MdxLink };
 
 export default function BlogCard({ frontmatter, body }) {
   let cardStyle = cardBlogStyle;
@@ -24,7 +25,7 @@ export default function BlogCard({ frontmatter, body }) {
         <Grid key="main" item xs={10} md={8}>
           <Card sx={cardStyle} elevation={8}>
             <CardContent>
-              <MDXProvider components={shortcodes}>
+              <MDXProvider components={componentMappings}>
                 <MDXRenderer frontmatter={frontmatter}>{body}</MDXRenderer>
               </MDXProvider>
             </CardContent>
@@ -42,6 +43,8 @@ BlogCard.propTypes = {
     summary: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     previewImage: PropTypes.object.isRequired,
+    date: PropTypes.string.isRequired,
+    lastModified: PropTypes.string.isRequired,
   }).isRequired,
   body: PropTypes.string.isRequired,
 };

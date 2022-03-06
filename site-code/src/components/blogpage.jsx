@@ -52,6 +52,8 @@ export const pageQuery = graphql`
         slug
         title
         summary
+        date
+        lastModified
         previewImage {
           childImageSharp {
             original {
@@ -73,9 +75,12 @@ BlogPage.propTypes = {
         title: PropTypes.string.isRequired,
         summary: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
         previewImage: PropTypes.object.isRequired,
+        lastModified: PropTypes.string.isRequired,
       }).isRequired,
       body: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }).isRequired,
     site: PropTypes.exact({
       siteMetadata: PropTypes.exact({

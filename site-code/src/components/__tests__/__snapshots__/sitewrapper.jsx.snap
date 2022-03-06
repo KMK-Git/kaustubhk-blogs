@@ -147,7 +147,7 @@ Array [
           "__html": "a{color:#c19a6b;}",
         }
       }
-      data-emotion="css-global mbkdnp"
+      data-emotion="css-global 1rkkank"
     />
     <style
       dangerouslySetInnerHTML={
@@ -206,12 +206,28 @@ Array [
               <div
                 className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
+                <style
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": ".css-2gwyu4-MuiTypography-root{margin:0;font-family:Roboto;font-weight:400;font-size:1.5rem;line-height:1.334;letter-spacing:0em;margin-bottom:0.35em;}",
+                    }
+                  }
+                  data-emotion="css 2gwyu4-MuiTypography-root"
+                />
                 <div
                   className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-2gwyu4-MuiTypography-root"
                 >
                   Title
                 </div>
               </div>
+              <style
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": ".css-16cvb1l-MuiCardMedia-root{display:block;-webkit-background-size:cover;background-size:cover;background-repeat:no-repeat;-webkit-background-position:center;background-position:center;}",
+                  }
+                }
+                data-emotion="css 16cvb1l-MuiCardMedia-root"
+              />
               <div
                 className="MuiCardMedia-root css-16cvb1l-MuiCardMedia-root"
               >
@@ -346,6 +362,14 @@ Array [
               <div
                 className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
               >
+                <style
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": ".css-199gdj3-MuiTypography-root{margin:0;font-family:Roboto;font-weight:400;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;}",
+                    }
+                  }
+                  data-emotion="css 199gdj3-MuiTypography-root"
+                />
                 <p
                   className="MuiTypography-root MuiTypography-body2 css-199gdj3-MuiTypography-root"
                   dangerouslySetInnerHTML={

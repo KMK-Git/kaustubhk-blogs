@@ -1502,7 +1502,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"4d3f21fe611d8ebfd4f1f69754b7f986fed4ecf648d4fafe941cd81ede6cf60c:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},
@@ -1523,7 +1522,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},
@@ -1544,7 +1542,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},
@@ -1565,7 +1562,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"868c66eef1bca6ed163047dd042c17cfa6f74c4154b342035e0a78839fda0a1b:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},
