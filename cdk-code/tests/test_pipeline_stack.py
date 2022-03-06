@@ -321,7 +321,6 @@ def test_pipeline_stack() -> None:
                                 "ProjectName": {
                                     "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
                                 },
-                                "EnvironmentVariables": '[{"name":"_PROJECT_CONFIG_HASH","type":"PLAINTEXT","value":"6fa652ef904ad4f1c14cbfa5b201f08c02a83f04ce2dd70a3398cc8a58c8157f"}]',
                             },
                             "InputArtifacts": [
                                 {"Name": "KMK_Git_kaustubhk_blogs_Source"}
@@ -815,7 +814,7 @@ def test_pipeline_stack() -> None:
                 "Fn::GetAtt": ["PipelineBuildSynthCdkBuildProjectRole231EEA2A", "Arn"]
             },
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "cd site-code",\n        "npm ci",\n        "cd ../cdk-code",\n        "pip install -r requirements.txt -r requirements-dev.txt",\n        "npm install -g aws-cdk"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cd ../site-code",\n        "npm run lint",\n        "npm run test",\n        "npm run build",\n        "cd ../cdk-code",\n        "black .",\n        "pylint $(git ls-files \'*.py\')",\n        "pytest --cov=.",\n        "cdk synth"\n      ]\n    }\n  },\n  "artifacts": {\n    "base-directory": "cdk-code/cdk.out",\n    "files": "**/*"\n  }\n}',
+                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "cd site-code",\n        "npm ci",\n        "cd ../cdk-code",\n        "pip install -r requirements.txt -r requirements-dev.txt",\n        "npm install -g aws-cdk"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cd ../site-code",\n        "npm run lint",\n        "npm run test",\n        "npm run build",\n        "cd ../cdk-code",\n        "black .",\n        "pylint application_stacks pipeline_stages pipeline_stack tests app.py",\n        "pytest --cov=.",\n        "cdk synth"\n      ]\n    }\n  },\n  "artifacts": {\n    "base-directory": "cdk-code/cdk.out",\n    "files": "**/*"\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},

@@ -58,7 +58,7 @@ class PipelineStack(Stack):
                     "npm run build",
                     "cd ../cdk-code",
                     "black .",
-                    "pylint $(git ls-files '*.py')",
+                    "pylint application_stacks pipeline_stages pipeline_stack tests app.py",
                     "pytest --cov=.",
                     "cdk synth",
                 ],
