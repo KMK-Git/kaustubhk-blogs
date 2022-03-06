@@ -52,7 +52,7 @@ class PipelineStack(Stack):
                     "npm install -g aws-cdk",
                 ],
                 commands=[
-                    "cd site-code",
+                    "cd ../site-code",
                     "npm run lint",
                     "npm run test",
                     "npm run build",
