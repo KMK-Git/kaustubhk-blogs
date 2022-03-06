@@ -48,7 +48,7 @@ class PipelineStack(Stack):
                     "cd site-code",
                     "npm ci",
                     "cd ../cdk-code",
-                    "pip install -r requirements. -r requirements-dev.txt",
+                    "pip install -r requirements.txt -r requirements-dev.txt",
                     "npm install -g aws-cdk",
                 ],
                 commands=[

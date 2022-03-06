@@ -321,7 +321,7 @@ def test_pipeline_stack() -> None:
                                 "ProjectName": {
                                     "Ref": "PipelineBuildSynthCdkBuildProject6BEFA8E6"
                                 },
-                                "EnvironmentVariables": '[{"name":"_PROJECT_CONFIG_HASH","type":"PLAINTEXT","value":"52986ac3b582a45e933750453eaae97490c4a2902d8688cfa404573bb2a141a5"}]',
+                                "EnvironmentVariables": '[{"name":"_PROJECT_CONFIG_HASH","type":"PLAINTEXT","value":"3453ce7525154089c465540c34ebc3882476f5975462673a43a71b5469b316c0"}]',
                             },
                             "InputArtifacts": [
                                 {"Name": "KMK_Git_kaustubhk_blogs_Source"}
@@ -815,7 +815,7 @@ def test_pipeline_stack() -> None:
                 "Fn::GetAtt": ["PipelineBuildSynthCdkBuildProjectRole231EEA2A", "Arn"]
             },
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "cd site-code",\n        "npm ci",\n        "cd ../cdk-code",\n        "pip install -r requirements. -r requirements-dev.txt",\n        "npm install -g aws-cdk"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cd site-code",\n        "npm run lint",\n        "npm run test",\n        "npm run build",\n        "cd ../cdk-code",\n        "black .",\n        "pylint $(git ls-files \'*.py\')",\n        "pytest --cov=.",\n        "cdk synth"\n      ]\n    }\n  },\n  "artifacts": {\n    "base-directory": "cdk-code/cdk.out",\n    "files": "**/*"\n  }\n}',
+                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "cd site-code",\n        "npm ci",\n        "cd ../cdk-code",\n        "pip install -r requirements.txt -r requirements-dev.txt",\n        "npm install -g aws-cdk"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cd site-code",\n        "npm run lint",\n        "npm run test",\n        "npm run build",\n        "cd ../cdk-code",\n        "black .",\n        "pylint $(git ls-files \'*.py\')",\n        "pytest --cov=.",\n        "cdk synth"\n      ]\n    }\n  },\n  "artifacts": {\n    "base-directory": "cdk-code/cdk.out",\n    "files": "**/*"\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
             "Cache": {"Type": "NO_CACHE"},
