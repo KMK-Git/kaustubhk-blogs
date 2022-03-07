@@ -761,6 +761,16 @@ def test_pipeline_stack() -> None:
                         },
                     },
                     {
+                        "Action": "sts:AssumeRole",
+                        "Condition": {
+                            "StringEquals": {
+                                "iam:ResourceTag/aws-cdk:bootstrap-role": "lookup"
+                            }
+                        },
+                        "Effect": "Allow",
+                        "Resource": "*",
+                    },
+                    {
                         "Action": [
                             "s3:GetObject*",
                             "s3:GetBucket*",

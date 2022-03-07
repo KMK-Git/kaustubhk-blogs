@@ -5,6 +5,7 @@ from aws_cdk import (
     Stack,
     pipelines as pipelines,
     aws_ssm as ssm,
+    aws_iam as iam,
 )
 from constructs import Construct
 from pipeline_stages.static_website_deploy_stage import StaticWebsiteDeployStage
@@ -41,7 +42,7 @@ class PipelineStack(Stack):
         cdk_codepipeline = pipelines.CodePipeline(
             self,
             "Pipeline",
-            synth=pipelines.ShellStep(
+            synth=pipelines.CodeBuildStep(
                 "Synth",
                 input=source,
                 install_commands=[
@@ -63,6 +64,17 @@ class PipelineStack(Stack):
                     "cdk synth",
                 ],
                 primary_output_directory="cdk-code/cdk.out",
+                role_policy_statements=[
+                    iam.PolicyStatement(
+                        actions=["sts:AssumeRole"],
+                        resources=["*"],
+                        conditions={
+                            "StringEquals": {
+                                "iam:ResourceTag/aws-cdk:bootstrap-role": "lookup",
+                            },
+                        },
+                    ),
+                ],
             ),
         )
         cdk_codepipeline.add_stage(
