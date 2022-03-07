@@ -10,7 +10,7 @@ from aws_cdk import (
     aws_certificatemanager as acm,
     aws_route53_targets as targets,
     aws_cloudfront as cloudfront,
-    aws_iam as iam,
+    aws_cloudfront_origins as origins,
     aws_s3_deployment as s3deploy,
 )
 from constructs import Construct
@@ -39,32 +39,20 @@ class StaticWebsiteStack(Stack):
         """
         super().__init__(scope, construct_id, **kwargs)
         # https://github.com/aws-samples/aws-cdk-examples/blob/master/typescript/static-site/static-site.ts
+        # Route 53 Hosted Zone lookup
         hosted_zone = route53.HostedZone.from_lookup(
             self, "HostedZone", domain_name=hostedzone_domain_name
         )
         website_domain = website_subdomain + "." + hostedzone_domain_name
-        cloudfront_oai = cloudfront.OriginAccessIdentity(
-            self, "CloudfrontOAI", comment=f"OAI for {website_domain}"
-        )
+        # S3 bucket where we store our website's static content.
+        # We don't allow public access.
         website_bucket = s3.Bucket(
             self,
             "WebsiteBucket",
-            website_index_document="index.html",
-            website_error_document="404.html",
             public_read_access=False,
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
         )
-        website_bucket.add_to_resource_policy(
-            iam.PolicyStatement(
-                actions=["s3:GetObject"],
-                resources=[website_bucket.arn_for_objects("*")],
-                principals=[
-                    iam.CanonicalUserPrincipal(
-                        cloudfront_oai.cloud_front_origin_access_identity_s3_canonical_user_id
-                    )
-                ],
-            )
-        )
+        # Create ACM Certificate for CloudFront distribution.
         certificate = acm.DnsValidatedCertificate(
             self,
             "SiteCertificate",
@@ -72,33 +60,34 @@ class StaticWebsiteStack(Stack):
             hosted_zone=hosted_zone,
             region="us-east-1",
         )
-        viewer_certificate = cloudfront.ViewerCertificate.from_acm_certificate(
-            certificate,
-            ssl_method=cloudfront.SSLMethod.SNI,
-            security_policy=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
-            aliases=[website_domain],
+        # Rewrite blog/example to blog/example/index.html, required for Gatsby.
+        # https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/url-rewrite-single-page-apps
+        cloudfront_function = cloudfront.Function(
+            self,
+            "CloudfrontFunction",
+            code=cloudfront.FunctionCode.from_file(
+                file_path="application_stacks/cloudfront_function.js"
+            ),
         )
+        # Create CloudFront distribution.
         # pylint: disable=too-many-function-args
-        distribution = cloudfront.CloudFrontWebDistribution(
+        distribution = cloudfront.Distribution(
             self,
             "WebsiteDistribution",
-            viewer_certificate=viewer_certificate,
-            origin_configs=[
-                cloudfront.SourceConfiguration(
-                    s3_origin_source=cloudfront.S3OriginConfig(
-                        s3_bucket_source=website_bucket,
-                        origin_access_identity=cloudfront_oai,
-                    ),
-                    behaviors=[
-                        cloudfront.Behavior(
-                            is_default_behavior=True,
-                            compress=True,
-                            allowed_methods=cloudfront.CloudFrontAllowedMethods.GET_HEAD_OPTIONS,
-                        )
-                    ],
-                )
-            ],
+            certificate=certificate,
+            default_behavior=cloudfront.BehaviorOptions(
+                origin=origins.S3Origin(website_bucket),
+                function_associations=[
+                    cloudfront.FunctionAssociation(
+                        function=cloudfront_function,
+                        event_type=cloudfront.FunctionEventType.VIEWER_REQUEST,
+                    )
+                ],
+            ),
+            domain_names=[website_domain],
+            minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
         )
+        # pylint: enable=too-many-function-args
         route53.ARecord(
             self,
             "DomainRecord",

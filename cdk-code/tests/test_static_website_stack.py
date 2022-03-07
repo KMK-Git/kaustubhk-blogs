@@ -22,14 +22,6 @@ def test_static_website_stack() -> None:
     )
     template = assertions.Template.from_stack(stack)
     template.has_resource_properties(
-        "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-        {
-            "CloudFrontOriginAccessIdentityConfig": {
-                "Comment": "OAI for subdomain.example.com"
-            }
-        },
-    )
-    template.has_resource_properties(
         "AWS::S3::Bucket",
         {
             "PublicAccessBlockConfiguration": {
@@ -39,10 +31,6 @@ def test_static_website_stack() -> None:
                 "RestrictPublicBuckets": True,
             },
             "Tags": [{"Key": "aws-cdk:cr-owned:33647188", "Value": "true"}],
-            "WebsiteConfiguration": {
-                "ErrorDocument": "404.html",
-                "IndexDocument": "index.html",
-            },
         },
     )
     template.has_resource_properties(
@@ -57,7 +45,7 @@ def test_static_website_stack() -> None:
                         "Principal": {
                             "CanonicalUser": {
                                 "Fn::GetAtt": [
-                                    "CloudfrontOAI6D521D0D",
+                                    "WebsiteDistributionOrigin1S3Origin432B5882",
                                     "S3CanonicalUserId",
                                 ]
                             }
@@ -71,7 +59,7 @@ def test_static_website_stack() -> None:
                                 ],
                             ]
                         },
-                    },
+                    }
                 ],
                 "Version": "2012-10-17",
             },
@@ -150,6 +138,7 @@ def test_static_website_stack() -> None:
         {
             "Code": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
+                "S3Key": "4d3f21fe611d8ebfd4f1f69754b7f986fed4ecf648d4fafe941cd81ede6cf60c.zip",
             },
             "Role": {
                 "Fn::GetAtt": [
@@ -177,50 +166,66 @@ def test_static_website_stack() -> None:
         },
     )
     template.has_resource_properties(
+        "AWS::CloudFront::Function",
+        {
+            "AutoPublish": True,
+            "FunctionCode": "// https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/url-rewrite-single-page-apps\nfunction handler(event) {\n    var request = event.request;\n    var uri = request.uri;\n\n    // Check whether the URI is missing a file name.\n    if (uri.endsWith('/')) {\n        request.uri += 'index.html';\n    }\n    // Check whether the URI is missing a file extension.\n    else if (!uri.includes('.')) {\n        request.uri += '/index.html';\n    }\n\n    return request;\n}",
+            "FunctionConfig": {
+                "Runtime": "cloudfront-js-1.0",
+            },
+        },
+    )
+    template.has_resource_properties(
+        "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+        {"CloudFrontOriginAccessIdentityConfig": {}},
+    )
+    template.has_resource_properties(
         "AWS::CloudFront::Distribution",
         {
             "DistributionConfig": {
                 "Aliases": ["subdomain.example.com"],
                 "DefaultCacheBehavior": {
-                    "AllowedMethods": ["GET", "HEAD", "OPTIONS"],
-                    "CachedMethods": ["GET", "HEAD"],
+                    "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
                     "Compress": True,
-                    "ForwardedValues": {
-                        "Cookies": {"Forward": "none"},
-                        "QueryString": False,
-                    },
-                    "TargetOriginId": "origin1",
-                    "ViewerProtocolPolicy": "redirect-to-https",
+                    "FunctionAssociations": [
+                        {
+                            "EventType": "viewer-request",
+                            "FunctionARN": {
+                                "Fn::GetAtt": [
+                                    "CloudfrontFunction11FEE36B",
+                                    "FunctionARN",
+                                ]
+                            },
+                        }
+                    ],
+                    "ViewerProtocolPolicy": "allow-all",
                 },
-                "DefaultRootObject": "index.html",
                 "Enabled": True,
                 "HttpVersion": "http2",
                 "IPV6Enabled": True,
                 "Origins": [
                     {
-                        "ConnectionAttempts": 3,
-                        "ConnectionTimeout": 10,
                         "DomainName": {
                             "Fn::GetAtt": [
                                 "WebsiteBucket75C24D94",
                                 "RegionalDomainName",
                             ]
                         },
-                        "Id": "origin1",
                         "S3OriginConfig": {
                             "OriginAccessIdentity": {
                                 "Fn::Join": [
                                     "",
                                     [
                                         "origin-access-identity/cloudfront/",
-                                        {"Ref": "CloudfrontOAI6D521D0D"},
+                                        {
+                                            "Ref": "WebsiteDistributionOrigin1S3Origin432B5882"
+                                        },
                                     ],
                                 ]
                             }
                         },
                     }
                 ],
-                "PriceClass": "PriceClass_100",
                 "ViewerCertificate": {
                     "AcmCertificateArn": {
                         "Fn::GetAtt": [
@@ -241,10 +246,7 @@ def test_static_website_stack() -> None:
             "Type": "A",
             "AliasTarget": {
                 "DNSName": {
-                    "Fn::GetAtt": [
-                        "WebsiteDistributionCFDistribution70408E7F",
-                        "DomainName",
-                    ]
+                    "Fn::GetAtt": ["WebsiteDistribution75DCDA0B", "DomainName"]
                 },
                 "HostedZoneId": {
                     "Fn::FindInMap": [
@@ -262,6 +264,7 @@ def test_static_website_stack() -> None:
         {
             "Content": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
+                "S3Key": "391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4.zip",
             },
             "Description": "/opt/awscli/aws",
         },
@@ -276,9 +279,12 @@ def test_static_website_stack() -> None:
                 ]
             },
             "SourceBucketNames": ["cdk-hnb659fds-assets-123456789012-ap-south-1"],
+            "SourceObjectKeys": [
+                "23e27d817d4cd4b3931cd45b7027467dba46c2f82b53e2578c811709b1f70c65.zip"
+            ],
             "DestinationBucketName": {"Ref": "WebsiteBucket75C24D94"},
             "Prune": True,
-            "DistributionId": {"Ref": "WebsiteDistributionCFDistribution70408E7F"},
+            "DistributionId": {"Ref": "WebsiteDistribution75DCDA0B"},
             "DistributionPaths": ["/*"],
         },
     )
@@ -396,6 +402,7 @@ def test_static_website_stack() -> None:
         {
             "Code": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
+                "S3Key": "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da.zip",
             },
             "Role": {
                 "Fn::GetAtt": [
