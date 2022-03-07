@@ -67,27 +67,6 @@ def test_static_website_stack() -> None:
                                 "",
                                 [
                                     {"Fn::GetAtt": ["WebsiteBucket75C24D94", "Arn"]},
-                                    "/*)",
-                                ],
-                            ]
-                        },
-                    },
-                    {
-                        "Action": "s3:GetObject",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "CanonicalUser": {
-                                "Fn::GetAtt": [
-                                    "CloudfrontOAI6D521D0D",
-                                    "S3CanonicalUserId",
-                                ]
-                            }
-                        },
-                        "Resource": {
-                            "Fn::Join": [
-                                "",
-                                [
-                                    {"Fn::GetAtt": ["WebsiteBucket75C24D94", "Arn"]},
                                     "/*",
                                 ],
                             ]

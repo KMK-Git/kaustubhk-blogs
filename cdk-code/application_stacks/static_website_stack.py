@@ -57,7 +57,7 @@ class StaticWebsiteStack(Stack):
         website_bucket.add_to_resource_policy(
             iam.PolicyStatement(
                 actions=["s3:GetObject"],
-                resources=[website_bucket.arn_for_objects("*)")],
+                resources=[website_bucket.arn_for_objects("*")],
                 principals=[
                     iam.CanonicalUserPrincipal(
                         cloudfront_oai.cloud_front_origin_access_identity_s3_canonical_user_id
