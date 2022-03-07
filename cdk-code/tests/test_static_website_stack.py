@@ -279,9 +279,6 @@ def test_static_website_stack() -> None:
                 ]
             },
             "SourceBucketNames": ["cdk-hnb659fds-assets-123456789012-ap-south-1"],
-            "SourceObjectKeys": [
-                "23e27d817d4cd4b3931cd45b7027467dba46c2f82b53e2578c811709b1f70c65.zip"
-            ],
             "DestinationBucketName": {"Ref": "WebsiteBucket75C24D94"},
             "Prune": True,
             "DistributionId": {"Ref": "WebsiteDistribution75DCDA0B"},
