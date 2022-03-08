@@ -115,7 +115,7 @@ module.exports = {
         },
       ],
     },
-  }, 'gatsby-plugin-offline', {
+  }, {
     resolve: 'gatsby-plugin-eslint',
     options: {
       // Gatsby required rules directory
