@@ -69,18 +69,8 @@ module.exports = {
         lastmod: lastModified,
       }),
     },
-  }, 'gatsby-plugin-emotion', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet', {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      name: "Kaustubh Khavnekar's blogs",
-      short_name: 'KaustubhK Blogs',
-      start_url: '/',
-      background_color: '#c19a6b',
-      theme_color: '#c19a6b',
-      display: 'standalone',
-      icon: 'src/images/icon.png',
-    },
-  }, 'gatsby-plugin-sharp', 'gatsby-transformer-sharp', {
+  }, 'gatsby-plugin-emotion', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet',
+  'gatsby-plugin-sharp', 'gatsby-transformer-sharp', {
     resolve: 'gatsby-source-filesystem',
     options: {
       name: 'images',

@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-new-blog-website"
-date: "2022-03-06"
-lastModified: "2022-03-06"
+date: "2022-03-09"
+lastModified: "2022-03-09"
 title: "Using Gatsby and AWS CDK to create my new Blogs Website"
 summary: "A look at the code, architecture, and deployment pipeline of my new blogs website"
 priority: 1
@@ -86,7 +86,6 @@ There are currently no dynamic components in the website architecture. The websi
 Besides Gatsby's base features, here is a list of features I have added using Gatsby plugins:
 - `robots.txt` file using [gatsby-plugin-robots-txt](https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/).
 - Sitemap using [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/).
-- Web app manifest using [gatsby-plugin-manifest](https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/).
 - CSS in JS support using [gatsby-plugin-emotion](https://www.gatsbyjs.com/plugins/gatsby-plugin-emotion/).
 - Responsive images using [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/).
 - Adding `<head>` tag using [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet). 
@@ -116,5 +115,5 @@ print(message)`;
 [AWS CDK](https://aws.amazon.com/cdk/) is a software development framework used to define cloud application resources using programming languages like Python, Typescript, Java, etc. This application uses Python.
 
 The resource defined in AWS CDK for this application can be differentiated into two different categories:
-- Application resources. These resources are used for the actual website hosting (1, 2, and 3 in the above diagram). The code can be viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/application_stacks/static_website_stack.py), and is mainly based on an [AWS example](https://github.com/aws-samples/aws-cdk-examples/blob/master/typescript/static-site/static-site.ts).
-- CI/CD pipeline resources. These resources are used for continuous integration and deployment of any changes pushed to the repository (A, B, C, D, E, and F in the above diagram). They are defined using the [CDK pipelines](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.pipelines/README.html) module. The code can viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/pipeline_stack/pipeline.py).
+- Application resources. These resources are used for the actual website hosting (1, 2, and 3 in the above diagram). The code can be viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/application_stacks/static_website_stack.py). It is mainly based on an [AWS example](https://github.com/aws-samples/aws-cdk-examples/blob/master/typescript/static-site/static-site.ts).
+- CI/CD pipeline resources. These resources are used for continuous integration and deployment of any changes pushed to the repository (A, B, C, D, E, and F in the above diagram). They are defined using the [CDK pipelines](https://docs.aws.amazon.com/cdk/api/v2/python/aws_cdk.pipelines/README.html) module. The code can be viewed [here](https://github.com/KMK-Git/kaustubhk-blogs/blob/main/cdk-code/pipeline_stack/pipeline.py).
