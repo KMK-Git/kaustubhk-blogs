@@ -43,7 +43,10 @@ class StaticWebsiteStack(Stack):
         hosted_zone = route53.HostedZone.from_lookup(
             self, "HostedZone", domain_name=hostedzone_domain_name
         )
-        website_domain = website_subdomain + "." + hostedzone_domain_name
+        if website_subdomain is None or website_subdomain == "":
+            website_domain = hostedzone_domain_name
+        else:
+            website_domain = website_subdomain + "." + hostedzone_domain_name
         # S3 bucket where we store our website's static content.
         # We don't allow public access.
         website_bucket = s3.Bucket(
