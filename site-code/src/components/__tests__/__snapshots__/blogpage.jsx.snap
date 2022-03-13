@@ -144,10 +144,10 @@ Array [
     <style
       dangerouslySetInnerHTML={
         Object {
-          "__html": "a{color:#c19a6b;}",
+          "__html": "a{color:#3f362c;}",
         }
       }
-      data-emotion="css-global 1rkkank"
+      data-emotion="css-global 196svgg"
     />
     <style
       dangerouslySetInnerHTML={
