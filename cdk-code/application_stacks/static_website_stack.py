@@ -86,6 +86,7 @@ class StaticWebsiteStack(Stack):
                         event_type=cloudfront.FunctionEventType.VIEWER_REQUEST,
                     )
                 ],
+                viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
             ),
             domain_names=[website_domain],
             minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,

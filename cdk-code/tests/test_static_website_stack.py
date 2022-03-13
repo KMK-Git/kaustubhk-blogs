@@ -198,7 +198,7 @@ def test_static_website_stack() -> None:
                             },
                         }
                     ],
-                    "ViewerProtocolPolicy": "allow-all",
+                    "ViewerProtocolPolicy": "redirect-to-https",
                 },
                 "Enabled": True,
                 "HttpVersion": "http2",
