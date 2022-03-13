@@ -17,18 +17,25 @@ export default function SiteWrapper({ siteContent }) {
   const calculateBackgroundStyle = () => {
     const style = {
       globalCss: `
-    a {
-      color: #c19a6b;
-    }`,
+    `,
       background: woodBackground,
     };
     if (isDarkModeEnabled()) {
       Object.assign(style.background, darkWoodBackgroundColor);
-      style.globalCss = style.globalCss.concat(`
+      style.globalCss = `
+          a {
+            color: #c19a6b;
+          }
           img {
             filter: brightness(.8) contrast(1.2);
           }
-      `);
+      `;
+    } else {
+      style.globalCss = `
+          a {
+            color: #3f362c;
+          }
+      `;
     }
     setBackgroundStyle(style);
   };
