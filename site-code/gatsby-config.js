@@ -15,7 +15,7 @@ const siteGlobalMetadata = {
   siteUrl: 'https://blogs.kaustubhk.com',
   title: 'Kaustubh Khavnekar Blogs',
   description: 'A personal website for Kaustubh Khavnekar. The website is hosted using various AWS Services with a frontend made using React and Gatsby.',
-  image: '/static/icon.png',
+  image: '/icon.png',
 };
 
 module.exports = {
