@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-new-website"
-date: "2022-03-13"
-lastModified: "2022-03-13"
+date: "2022-03-14"
+lastModified: "2022-03-14"
 title: "Using Gatsby and AWS CDK to create my new Website"
 summary: "A look at the code, architecture, and deployment pipeline of my new website"
 priority: 1
@@ -140,6 +140,7 @@ I had two ideas in my head: either using a simple look with minimal styling or u
 ### Some potential improvements
 
 - Make the terminal dynamic with the ability to input some simple commands.
+- Cross region high availability design, using origin failover in CloudFront.
 - My original website had a fully functional contact me form, which made API calls to a serverless API. I have removed it for now since it was built more as a novelty for any friends or family to play around with, and I want some more time to redesign it to fit in with my new website.
 - Add some more types of testing. Currently, the CDK tests are assertions that the stacks generate CloudFormation template with proper resource values, and the Gatsby tests are snapshot tests of all components.
 - My previous website had a half-baked birthday emails functionality which was used to send emails to my friends. I will be transferring the API components to CDK from AWS SAM.
