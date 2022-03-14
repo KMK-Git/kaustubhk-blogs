@@ -101,6 +101,15 @@ class StaticWebsiteStack(Stack):
                 targets.CloudFrontTarget(distribution)
             ),
         )
+        route53.AaaaRecord(
+            self,
+            "DomainRecordAAAA",
+            zone=hosted_zone,
+            record_name=website_domain,
+            target=route53.RecordTarget.from_alias(
+                targets.CloudFrontTarget(distribution)
+            ),
+        )
         s3deploy.BucketDeployment(
             self,
             "S3Deployment",
