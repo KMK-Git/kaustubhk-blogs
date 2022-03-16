@@ -1,7 +1,7 @@
 ---
 slug: "/blog/my-new-website"
 date: "2022-03-14"
-lastModified: "2022-03-14"
+lastModified: "2022-03-16"
 title: "Using Gatsby and AWS CDK to create my new Website"
 summary: "A look at the code, architecture, and deployment pipeline of my new website"
 priority: 1
@@ -131,11 +131,11 @@ I wanted to learn and use React for my website and then came across Gatsby which
 
 ### Why did I use CDK?
 
-Easy to write, test, and deploy infrastructure as code. Other options like Terraform have their merits, but the ease of quickly using high-level constructs and using CDK pipelines to create a CI/CD pipeline meant I went with CDK for this project.
+It is easy to write, test, and deploy infrastructure as code using CDK. Other options like Terraform have their merits, but the ease of quickly using high-level constructs and using CDK pipelines to create a CI/CD pipeline meant I went with CDK for this project.
 
 ### Design of the home page
 
-I had two ideas in my head: either using a simple look with minimal styling or using a terminal theme. I found a [codepen](https://codepen.io/codypearce/pen/JmOQXB) with an Ubuntu terminal which I liked. Since the codepen is open source I decided to use it with proper credits given to the original author. Since I am not good with CSS I struggled a bit to make the design responsive, especially the background gradient but managed to get it working in the end. For mobile screens, my original idea was to change the terminal width to fit the screen, but the word wrapping and terminal dimensions became weird. I then decided to keep the terminal design fixed and allow the user to zoom in and scroll instead.
+I had two ideas in my head: either using a simple look with minimal styling or using a terminal theme. I found an MIT licensed [codepen](https://codepen.io/codypearce/pen/JmOQXB) with an Ubuntu terminal that fits in with the terminal theme. I am not well versed with CSS so I struggled to make the design responsive, especially the background gradient but managed to get it working in the end. For mobile screens, I felt keeping the dimensions fixed and allowing the user to scroll and zoom in was better than awkwardly word wrapping and reducing the width.
 
 ### Some potential improvements
 
@@ -145,3 +145,4 @@ I had two ideas in my head: either using a simple look with minimal styling or u
 - Add some more types of testing. Currently, the CDK tests are assertions that the stacks generate CloudFormation template with proper resource values, and the Gatsby tests are snapshot tests of all components.
 - My previous website had a half-baked birthday emails functionality which was used to send emails to my friends. I will be transferring the API components to CDK from AWS SAM.
 - Add a comments section to the blogs website.
+- Reducing the deployment time, especially when the only change is the S3 deployment.
