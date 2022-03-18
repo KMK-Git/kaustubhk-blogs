@@ -21,6 +21,7 @@ def test_pipeline_stack() -> None:
             "StaticWebsiteDeployStage",
             hostedzone_domain_name="kaustubhk.com",
             website_subdomain="blogs",
+            alternative_subdomains=[],
             env=cdk.Environment(account="123456789012", region="ap-south-1"),
         ),
         env=cdk.Environment(account="123456789012", region="ap-south-1"),

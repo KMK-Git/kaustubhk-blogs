@@ -18,6 +18,7 @@ def test_static_website_stack() -> None:
         "StaticWebsiteStack",
         hostedzone_domain_name="example.com",
         website_subdomain="subdomain",
+        alternative_subdomains=[],
         env=cdk.Environment(account="123456789012", region="ap-south-1"),
     )
     template = assertions.Template.from_stack(stack)
@@ -180,6 +181,38 @@ def test_static_website_stack() -> None:
         {"CloudFrontOriginAccessIdentityConfig": {}},
     )
     template.has_resource_properties(
+        "AWS::CloudFront::ResponseHeadersPolicy",
+        {
+            "ResponseHeadersPolicyConfig": {
+                "Comment": "Security Headers",
+                "Name": "kaustubhk-SecurityHeadersPolicy",
+                "SecurityHeadersConfig": {
+                    "ContentSecurityPolicy": {
+                        "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:; require-trusted-types-for 'script';",
+                        "Override": True,
+                    },
+                    "ContentTypeOptions": {"Override": True},
+                    "FrameOptions": {"FrameOption": "DENY", "Override": True},
+                    "ReferrerPolicy": {
+                        "Override": True,
+                        "ReferrerPolicy": "no-referrer",
+                    },
+                    "StrictTransportSecurity": {
+                        "AccessControlMaxAgeSec": 63072000,
+                        "IncludeSubdomains": True,
+                        "Override": True,
+                        "Preload": True,
+                    },
+                    "XSSProtection": {
+                        "ModeBlock": True,
+                        "Override": True,
+                        "Protection": True,
+                    },
+                },
+            }
+        },
+    )
+    template.has_resource_properties(
         "AWS::CloudFront::Distribution",
         {
             "DistributionConfig": {
@@ -198,6 +231,7 @@ def test_static_website_stack() -> None:
                             },
                         }
                     ],
+                    "ResponseHeadersPolicyId": {"Ref": "ResponseHeadersPolicy13DBF9E0"},
                     "ViewerProtocolPolicy": "redirect-to-https",
                 },
                 "Enabled": True,
