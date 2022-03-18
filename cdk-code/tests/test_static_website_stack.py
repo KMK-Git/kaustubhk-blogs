@@ -185,7 +185,7 @@ def test_static_website_stack() -> None:
         {
             "ResponseHeadersPolicyConfig": {
                 "Comment": "Security Headers",
-                "Name": "kaustubhk-SecurityHeadersPolicy",
+                "Name": "kaustubhkblogs-SecurityHeadersPolicy",
                 "SecurityHeadersConfig": {
                     "ContentSecurityPolicy": {
                         "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:; require-trusted-types-for 'script';",

@@ -93,7 +93,7 @@ class StaticWebsiteStack(Stack):
             self,
             "ResponseHeadersPolicy",
             comment="Security Headers",
-            response_headers_policy_name="kaustubhk-SecurityHeadersPolicy",
+            response_headers_policy_name="kaustubhkblogs-SecurityHeadersPolicy",
             security_headers_behavior=cloudfront.ResponseSecurityHeadersBehavior(
                 content_security_policy=cloudfront.ResponseHeadersContentSecurityPolicy(
                     content_security_policy="default-src 'self'; "
