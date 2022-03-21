@@ -99,7 +99,8 @@ class StaticWebsiteStack(Stack):
                     content_security_policy="default-src 'self'; "
                     "img-src 'self' data: https://*; child-src 'none'; "
                     "object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; "
-                    "style-src 'unsafe-inline' 'self'; font-src 'self' data:;",
+                    "style-src 'unsafe-inline' 'self'; font-src 'self' data:; "
+                    "frame-src youtube.com www.youtube.com;",
                     override=True,
                 ),
                 content_type_options=cloudfront.ResponseHeadersContentTypeOptions(
