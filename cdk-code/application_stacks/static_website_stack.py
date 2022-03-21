@@ -100,7 +100,7 @@ class StaticWebsiteStack(Stack):
                     "img-src 'self' data: https://*; child-src 'none'; "
                     "object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; "
                     "style-src 'unsafe-inline' 'self'; font-src 'self' data:; "
-                    "frame-src youtube.com www.youtube.com;",
+                    "frame-src www.youtube-nocookie.com;",
                     override=True,
                 ),
                 content_type_options=cloudfront.ResponseHeadersContentTypeOptions(

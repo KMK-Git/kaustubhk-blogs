@@ -188,7 +188,7 @@ def test_static_website_stack() -> None:
                 "Name": "kaustubhkblogs-SecurityHeadersPolicy",
                 "SecurityHeadersConfig": {
                     "ContentSecurityPolicy": {
-                        "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:; frame-src youtube.com www.youtube.com;",
+                        "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:; frame-src www.youtube-nocookie.com;",
                         "Override": True,
                     },
                     "ContentTypeOptions": {"Override": True},
