@@ -99,8 +99,7 @@ class StaticWebsiteStack(Stack):
                     content_security_policy="default-src 'self'; "
                     "img-src 'self' data: https://*; child-src 'none'; "
                     "object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; "
-                    "style-src 'unsafe-inline' 'self'; font-src 'self' data:; "
-                    "require-trusted-types-for 'script';",
+                    "style-src 'unsafe-inline' 'self'; font-src 'self' data:;",
                     override=True,
                 ),
                 content_type_options=cloudfront.ResponseHeadersContentTypeOptions(
@@ -132,6 +131,13 @@ class StaticWebsiteStack(Stack):
             self,
             "WebsiteDistribution",
             certificate=certificate,
+            error_responses=[
+                cloudfront.ErrorResponse(
+                    http_status=403,
+                    response_http_status=404,
+                    response_page_path="/404.html",
+                )
+            ],
             default_behavior=cloudfront.BehaviorOptions(
                 origin=origins.S3Origin(website_bucket),
                 function_associations=[

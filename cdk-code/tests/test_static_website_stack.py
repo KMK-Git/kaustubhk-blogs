@@ -188,7 +188,7 @@ def test_static_website_stack() -> None:
                 "Name": "kaustubhkblogs-SecurityHeadersPolicy",
                 "SecurityHeadersConfig": {
                     "ContentSecurityPolicy": {
-                        "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:; require-trusted-types-for 'script';",
+                        "ContentSecurityPolicy": "default-src 'self'; img-src 'self' data: https://*; child-src 'none'; object-src 'none'; script-src 'unsafe-inline' 'self' 'unsafe-eval'; style-src 'unsafe-inline' 'self'; font-src 'self' data:;",
                         "Override": True,
                     },
                     "ContentTypeOptions": {"Override": True},
@@ -217,6 +217,13 @@ def test_static_website_stack() -> None:
         {
             "DistributionConfig": {
                 "Aliases": ["subdomain.example.com"],
+                "CustomErrorResponses": [
+                    {
+                        "ErrorCode": 403,
+                        "ResponseCode": 404,
+                        "ResponsePagePath": "/404.html",
+                    }
+                ],
                 "DefaultCacheBehavior": {
                     "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
                     "Compress": True,
