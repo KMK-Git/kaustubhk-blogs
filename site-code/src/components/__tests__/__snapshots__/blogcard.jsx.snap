@@ -33,7 +33,7 @@ Array [
         data-emotion="css 1tbav1i-MuiGrid-root"
       />
       <div
-        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-0 MuiGrid-grid-sm-1 MuiGrid-grid-md-2 css-1tbav1i-MuiGrid-root"
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-1 MuiGrid-grid-md-2 css-1tbav1i-MuiGrid-root"
       />
       <style
         dangerouslySetInnerHTML={
