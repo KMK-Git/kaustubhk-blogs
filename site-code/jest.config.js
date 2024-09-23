@@ -12,7 +12,7 @@ module.exports = {
     __PATH_PREFIX__: '',
   },
   testEnvironmentOptions: {
-    url: 'http://localhost'
+    url: 'http://localhost',
   },
   setupFiles: ['<rootDir>/loadershim.js'],
 };
