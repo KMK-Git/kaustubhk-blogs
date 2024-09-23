@@ -12,6 +12,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
             }
             id
+            internal {
+              contentFilePath
+            }
           }
       }
     }
@@ -24,6 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create blog post pages.
   const posts = result.data.allMdx.nodes;
   // you'll call `createPage` for each result
+  const blogTemplate = path.resolve('./src/components/blogpage.jsx');
   posts.forEach((post) => {
     // console.log(node);
     createPage({
@@ -31,7 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // You can prepend it with any prefix you want
       path: post.frontmatter.slug,
       // This component will wrap our MDX content
-      component: path.resolve('./src/components/blogpage.jsx'),
+      component: `${blogTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
       // You can use the values in this context in
       // our page layout component
       context: { id: post.id },

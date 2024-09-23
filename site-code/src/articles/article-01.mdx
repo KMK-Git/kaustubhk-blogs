@@ -10,13 +10,13 @@ cardColors: "#fff740,#7afcff,#ff7eb9"
 darkCardColors: "#b3aa00,#00b0b3,#b30050"
 ---
 import Button from '@mui/material/Button';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import { themes } from 'prism-react-renderer';
 
-<h1>{props.frontmatter.title}</h1>
+<h1>{props.pageContext.frontmatter.title}</h1>
 
-<em>Published on {props.frontmatter.date}</em>
+<em>Published on {props.pageContext.frontmatter.date}</em>
 <br/>
-<em>Last modified on {props.frontmatter.lastModified}</em>
+<em>Last modified on {props.pageContext.frontmatter.lastModified}</em>
 
 ## Introduction
 
@@ -112,7 +112,7 @@ The dark mode changes the theme of the page and adds a 'filter' to all images to
 export const exampleCode = `message = "Hello World!"
 print(message)`;
 
-<CodeHighlight theme={vsDark} code={exampleCode} language="python" />
+<CodeHighlight theme={themes.vsDark} code={exampleCode} language="python" />
 
 - An auto generated [index page](/).
 

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`VideoNote renders correctly 1`] = `
-Array [
+[
   <style
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": ".css-1lrg2we-MuiGrid-root{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex-wrap:wrap;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;width:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width:0px){.css-1lrg2we-MuiGrid-root{margin-top:-24px;}.css-1lrg2we-MuiGrid-root>.MuiGrid-item{padding-top:24px;}}@media (min-width:0px){.css-1lrg2we-MuiGrid-root{width:calc(100% + 24px);margin-left:-24px;}.css-1lrg2we-MuiGrid-root>.MuiGrid-item{padding-left:24px;}}",
       }
     }
@@ -16,7 +16,7 @@ Array [
   >
     <style
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": ".css-1idn90j-MuiGrid-root{box-sizing:border-box;margin:0;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}@media (min-width:600px){.css-1idn90j-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}@media (min-width:900px){.css-1idn90j-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}@media (min-width:1200px){.css-1idn90j-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}@media (min-width:1536px){.css-1idn90j-MuiGrid-root{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;-webkit-box-flex:0;-webkit-flex-grow:0;-ms-flex-positive:0;flex-grow:0;max-width:100%;}}",
         }
       }
@@ -28,7 +28,7 @@ Array [
     >
       <style
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": ".css-1ku1hys-MuiCard-root{overflow:hidden;background-color:#fff740;-webkit-transform:rotate(3deg);-moz-transform:rotate(3deg);-ms-transform:rotate(3deg);transform:rotate(3deg);max-width:800px;margin-top:80px;-webkit-transition:-webkit-transform .2s linear;transition:transform .2s linear;align:center;}.css-1ku1hys-MuiCard-root:hover{z-index:4;-webkit-transform:scale(1.15);-moz-transform:scale(1.15);-ms-transform:scale(1.15);transform:scale(1.15);}",
           }
         }
@@ -36,7 +36,7 @@ Array [
       />
       <style
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": ".css-136jmhs-MuiPaper-root-MuiCard-root{background-color:#fff;color:rgba(0, 0, 0, 0.87);-webkit-transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;border-radius:4px;box-shadow:0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);overflow:hidden;background-color:#fff740;-webkit-transform:rotate(3deg);-moz-transform:rotate(3deg);-ms-transform:rotate(3deg);transform:rotate(3deg);max-width:800px;margin-top:80px;-webkit-transition:-webkit-transform .2s linear;transition:transform .2s linear;align:center;}.css-136jmhs-MuiPaper-root-MuiCard-root:hover{z-index:4;-webkit-transform:scale(1.15);-moz-transform:scale(1.15);-ms-transform:scale(1.15);transform:scale(1.15);}",
           }
         }
@@ -47,7 +47,7 @@ Array [
       >
         <style
           dangerouslySetInnerHTML={
-            Object {
+            {
               "__html": ".css-46bh2p-MuiCardContent-root{padding:16px;}.css-46bh2p-MuiCardContent-root:last-child{padding-bottom:24px;}",
             }
           }
@@ -58,8 +58,8 @@ Array [
         >
           <style
             dangerouslySetInnerHTML={
-              Object {
-                "__html": ".css-h93ljk-MuiTypography-root{margin:0;font-family:\\"Roboto\\",\\"Helvetica\\",\\"Arial\\",sans-serif;font-weight:400;font-size:1.5rem;line-height:1.334;letter-spacing:0em;margin-bottom:0.35em;}",
+              {
+                "__html": ".css-h93ljk-MuiTypography-root{margin:0;font-family:"Roboto","Helvetica","Arial",sans-serif;font-weight:400;font-size:1.5rem;line-height:1.334;letter-spacing:0em;margin-bottom:0.35em;}",
               }
             }
             data-emotion="css h93ljk-MuiTypography-root"
@@ -72,7 +72,7 @@ Array [
         </div>
         <style
           dangerouslySetInnerHTML={
-            Object {
+            {
               "__html": ".css-16cvb1l-MuiCardMedia-root{display:block;-webkit-background-size:cover;background-size:cover;background-repeat:no-repeat;-webkit-background-position:center;background-position:center;}",
             }
           }

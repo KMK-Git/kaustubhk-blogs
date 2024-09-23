@@ -23,7 +23,7 @@ export default function Template() {
           darkCardColors
         }
       }
-      blogsQuery: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      blogsQuery: allMdx(sort: {frontmatter: {date: DESC}}) {
         nodes {
           frontmatter {
             date(formatString: "YYYY-MM-DD")

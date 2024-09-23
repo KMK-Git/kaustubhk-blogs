@@ -1,5 +1,5 @@
 import React from 'react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
@@ -28,7 +28,7 @@ export default function CodeHighlight({ theme, code, language }) {
     `;
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <Highlight {...defaultProps} theme={theme} code={code} language={language}>
+    <Highlight theme={theme} code={code} language={language}>
       {({
         className, style, tokens, getLineProps, getTokenProps,
       }) => (

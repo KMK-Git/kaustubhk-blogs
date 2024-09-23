@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import { themes } from 'prism-react-renderer';
 import CodeHighlight from '../codehighlight';
 
 describe('CodeHighlight', () => {
@@ -21,7 +21,7 @@ describe('CodeHighlight', () => {
         ),
     )`;
     const tree = renderer
-      .create(<CodeHighlight theme={vsDark} code={exampleCode} language="python" />)
+      .create(<CodeHighlight theme={themes.vsDark} code={exampleCode} language="python" />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

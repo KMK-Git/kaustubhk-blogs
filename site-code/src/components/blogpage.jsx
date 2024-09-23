@@ -8,9 +8,10 @@ import SiteWrapper from './sitewrapper';
 
 export default function BlogPage({
   data: {
-    mdx: { frontmatter, body },
+    mdx: { frontmatter },
     site: { siteMetadata: { siteUrl } },
   },
+  children,
 }) {
   const { pathname } = useLocation();
   const seo = {
@@ -31,7 +32,7 @@ export default function BlogPage({
         <meta property="og:image:width" content={seo.previewImageHeight} />
         <meta property="og:image:height" content={seo.previewImageWidth} />
       </Helmet>
-      <BlogCard frontmatter={frontmatter} body={body} />
+      <BlogCard>{children}</BlogCard>
     </>
   );
   return (
@@ -47,7 +48,6 @@ export const pageQuery = graphql`
     }
     mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         slug
         title
@@ -79,7 +79,6 @@ BlogPage.propTypes = {
         previewImage: PropTypes.object.isRequired,
         lastModified: PropTypes.string.isRequired,
       }).isRequired,
-      body: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     }).isRequired,
     site: PropTypes.exact({
@@ -88,4 +87,5 @@ BlogPage.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
+  children: PropTypes.node.isRequired,
 };

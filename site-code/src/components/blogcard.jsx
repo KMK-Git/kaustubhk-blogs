@@ -4,7 +4,6 @@ import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import PropTypes from 'prop-types';
 import { cardBlogStyle, darkCardBlogStyle } from './styles';
 import isDarkModeEnabled from '../utils/dark-mode';
@@ -13,7 +12,7 @@ import MdxLink from './mdxlink';
 
 const componentMappings = { CodeHighlight, a: MdxLink };
 
-export default function BlogCard({ frontmatter, body }) {
+export default function BlogCard({ children }) {
   const [cardStyle, setCardStyle] = useState({});
   const calculateCardStyle = () => {
     let style = cardBlogStyle;
@@ -33,7 +32,7 @@ export default function BlogCard({ frontmatter, body }) {
           <Card sx={cardStyle} elevation={8}>
             <CardContent>
               <MDXProvider components={componentMappings}>
-                <MDXRenderer frontmatter={frontmatter}>{body}</MDXRenderer>
+                {children}
               </MDXProvider>
             </CardContent>
           </Card>
@@ -45,13 +44,5 @@ export default function BlogCard({ frontmatter, body }) {
 }
 
 BlogCard.propTypes = {
-  frontmatter: PropTypes.exact({
-    title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    previewImage: PropTypes.object.isRequired,
-    date: PropTypes.string.isRequired,
-    lastModified: PropTypes.string.isRequired,
-  }).isRequired,
-  body: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };

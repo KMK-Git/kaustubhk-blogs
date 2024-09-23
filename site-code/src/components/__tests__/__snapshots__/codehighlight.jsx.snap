@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CodeHighlight renders correctly 1`] = `
-Array [
+[
   <style
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": ".css-q95l03{text-align:left;margin:1em 0;padding:0.5em;overflow:scroll;}",
       }
     }
@@ -13,7 +13,7 @@ Array [
   <pre
     className="prism-code language-python css-q95l03"
     style={
-      Object {
+      {
         "backgroundColor": "#1E1E1E",
         "color": "#9CDCFE",
       }
@@ -21,7 +21,7 @@ Array [
   >
     <style
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": ".css-xtqww5{display:table-row;}",
         }
       }
@@ -30,15 +30,15 @@ Array [
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
     >
       <style
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": ".css-1xj3q7t{display:table-cell;text-align:right;padding-right:1em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5;}",
           }
         }
@@ -51,7 +51,7 @@ Array [
       </span>
       <style
         dangerouslySetInnerHTML={
-          Object {
+          {
             "__html": ".css-xy8ieu{display:table-cell;}",
           }
         }
@@ -68,7 +68,7 @@ Array [
         <span
           className="token operator"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -83,7 +83,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -98,7 +98,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -107,16 +107,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -137,7 +135,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -146,16 +144,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -176,7 +172,7 @@ Array [
         <span
           className="token string"
           style={
-            Object {
+            {
               "color": "rgb(206, 145, 120)",
             }
           }
@@ -186,7 +182,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -195,16 +191,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -225,7 +219,7 @@ Array [
         <span
           className="token operator"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -240,7 +234,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -255,7 +249,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -264,16 +258,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -294,7 +286,7 @@ Array [
         <span
           className="token string"
           style={
-            Object {
+            {
               "color": "rgb(206, 145, 120)",
             }
           }
@@ -304,7 +296,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -313,16 +305,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -343,7 +333,7 @@ Array [
         <span
           className="token builtin"
           style={
-            Object {
+            {
               "color": "rgb(86, 156, 214)",
             }
           }
@@ -353,7 +343,7 @@ Array [
         <span
           className="token operator"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -368,7 +358,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -377,16 +367,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -407,7 +395,7 @@ Array [
         <span
           className="token operator"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -417,7 +405,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -426,16 +414,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -456,7 +442,7 @@ Array [
         <span
           className="token string"
           style={
-            Object {
+            {
               "color": "rgb(206, 145, 120)",
             }
           }
@@ -466,7 +452,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -475,16 +461,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -505,7 +489,7 @@ Array [
         <span
           className="token string"
           style={
-            Object {
+            {
               "color": "rgb(206, 145, 120)",
             }
           }
@@ -515,7 +499,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -524,16 +508,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -554,7 +536,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -564,7 +546,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -573,16 +555,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -603,7 +583,7 @@ Array [
         <span
           className="token operator"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -613,7 +593,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -622,16 +602,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -652,7 +630,7 @@ Array [
         <span
           className="token string"
           style={
-            Object {
+            {
               "color": "rgb(206, 145, 120)",
             }
           }
@@ -662,7 +640,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -671,16 +649,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -701,7 +677,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -711,7 +687,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -720,16 +696,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -750,7 +724,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -760,7 +734,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }
@@ -769,16 +743,14 @@ Array [
         </span>
         <span
           className="token plain"
-        >
-          
-        </span>
+        />
       </span>
     </div>
     <div
       className="token-line css-xtqww5"
       style={
-        Object {
-          "backgroundColor": null,
+        {
+          "backgroundColor": undefined,
           "color": "#9CDCFE",
         }
       }
@@ -799,7 +771,7 @@ Array [
         <span
           className="token punctuation"
           style={
-            Object {
+            {
               "color": "rgb(212, 212, 212)",
             }
           }

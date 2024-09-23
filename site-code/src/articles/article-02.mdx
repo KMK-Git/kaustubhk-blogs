@@ -10,13 +10,13 @@ cardColors: "#fff740,#7afcff"
 darkCardColors: "#b3aa00,#00b0b3"
 ---
 import Button from '@mui/material/Button';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import { themes } from 'prism-react-renderer';
 
-<h1>{props.frontmatter.title}</h1>
+<h1>{props.pageContext.frontmatter.title}</h1>
 
-<em>Published on {props.frontmatter.date}</em>
+<em>Published on {props.pageContext.frontmatter.date}</em>
 <br/>
-<em>Last modified on {props.frontmatter.lastModified}</em>
+<em>Last modified on {props.pageContext.frontmatter.lastModified}</em>
 
 # Introduction
 
@@ -130,7 +130,7 @@ export const iamPolicy = `{
     ]
 }`
 
-<CodeHighlight theme={vsDark} code={iamPolicy} language="json" />
+<CodeHighlight theme={themes.vsDarkark} code={iamPolicy} language="json" />
 
 ## Generating the CA/Trust Anchor and Client certificates
 
@@ -167,7 +167,7 @@ openssl x509 -req -in client.csr -CA certificate_authority_cert.pem -CAkey certi
 # Show certificate for client
 openssl x509 -text -noout -in client_cert.pem`;
 
-<CodeHighlight theme={vsDark} code={generateCertsSh} language="shell" />
+<CodeHighlight theme={themes.vsDarkark} code={generateCertsSh} language="shell" />
 
 ## Creating Trust Anchors and Profiles
 
@@ -202,7 +202,7 @@ session_token=$(echo $credentials | jq -r ".SessionToken")
 # Verify credentials
 AWS_ACCESS_KEY_ID=$access_key_id AWS_SECRET_ACCESS_KEY=$secret_access_key AWS_SESSION_TOKEN=$session_token aws sts get-caller-identity`
 
-<CodeHighlight theme={vsDark} code={rolesAnywhereSh} language="shell" />
+<CodeHighlight theme={themes.vsDarkark} code={rolesAnywhereSh} language="shell" />
 
 ## Cleanup created resources
 
@@ -227,7 +227,7 @@ aws iam delete-role --role-name demo-rolesanywhere
 # Delete trust anchor
 aws rolesanywhere delete-trust-anchor --trust-anchor-id $trust_anchor_id`
 
-<CodeHighlight theme={vsDark} code={cleanupSh} language="shell" />
+<CodeHighlight theme={themes.vsDarkark} code={cleanupSh} language="shell" />
 
 # Disclaimer
 
