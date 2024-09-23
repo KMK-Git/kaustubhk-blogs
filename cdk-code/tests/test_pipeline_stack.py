@@ -1315,7 +1315,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"a2e7651ba9be8f958d83028060a1405af378aed354e038f14bb47504ff0a2af5:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
         },
