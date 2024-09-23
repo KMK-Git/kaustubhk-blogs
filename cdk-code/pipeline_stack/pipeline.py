@@ -1,6 +1,7 @@
 """
 CDK Pipelines Stack.
 """
+
 from aws_cdk import (
     Stack,
     pipelines as pipelines,

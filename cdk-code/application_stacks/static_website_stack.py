@@ -1,6 +1,7 @@
 """
 Static Website CDK Stack.
 """
+
 import os
 from typing import List
 

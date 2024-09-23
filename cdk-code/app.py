@@ -1,6 +1,7 @@
 """
 CDK Application entry point.
 """
+
 import os
 import aws_cdk as cdk
 from pipeline_stack.pipeline import PipelineStack

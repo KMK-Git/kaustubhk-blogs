@@ -1,6 +1,7 @@
 """
 Test Static Website Stack.
 """
+
 # pylint: disable=line-too-long
 import aws_cdk as cdk
 from aws_cdk import assertions
@@ -111,6 +112,19 @@ def test_static_website_stack() -> None:
                     {"Action": "route53:GetChange", "Effect": "Allow", "Resource": "*"},
                     {
                         "Action": "route53:changeResourceRecordSets",
+                        "Condition": {
+                            "ForAllValues:StringEquals": {
+                                "route53:ChangeResourceRecordSetsRecordTypes": [
+                                    "CNAME"
+                                ],
+                                "route53:ChangeResourceRecordSetsActions": ["UPSERT"],
+                            },
+                            "ForAllValues:StringLike": {
+                                "route53:ChangeResourceRecordSetsNormalizedRecordNames": [
+                                    "*.subdomain.example.com"
+                                ]
+                            },
+                        },
                         "Effect": "Allow",
                         "Resource": {
                             "Fn::Join": [
@@ -139,16 +153,16 @@ def test_static_website_stack() -> None:
         {
             "Code": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
-                "S3Key": "4d3f21fe611d8ebfd4f1f69754b7f986fed4ecf648d4fafe941cd81ede6cf60c.zip",
+                "S3Key": "b073cebcf4d61fb152a30f5a5e57a94df7f980a549fdf1a79a0b18c5750522d8.zip",
             },
+            "Handler": "index.certificateRequestHandler",
             "Role": {
                 "Fn::GetAtt": [
                     "SiteCertificateCertificateRequestorFunctionServiceRole645E891D",
                     "Arn",
                 ]
             },
-            "Handler": "index.certificateRequestHandler",
-            "Runtime": "nodejs12.x",
+            "Runtime": "nodejs18.x",
             "Timeout": 900,
         },
     )
@@ -172,13 +186,11 @@ def test_static_website_stack() -> None:
             "AutoPublish": True,
             "FunctionCode": "// https://github.com/aws-samples/amazon-cloudfront-functions/tree/main/url-rewrite-single-page-apps\nfunction handler(event) {\n    var request = event.request;\n    var uri = request.uri;\n\n    // Check whether the URI is missing a file name.\n    if (uri.endsWith('/')) {\n        request.uri += 'index.html';\n    }\n    // Check whether the URI is missing a file extension.\n    else if (!uri.includes('.')) {\n        request.uri += '/index.html';\n    }\n\n    return request;\n}",
             "FunctionConfig": {
+                "Comment": "ap-south-1StaticWebsiteStackCloudfrontFunctionCC4DED7B",
                 "Runtime": "cloudfront-js-1.0",
             },
+            "Name": "ap-south-1StaticWebsiteStackCloudfrontFunctionCC4DED7B",
         },
-    )
-    template.has_resource_properties(
-        "AWS::CloudFront::CloudFrontOriginAccessIdentity",
-        {"CloudFrontOriginAccessIdentityConfig": {}},
     )
     template.has_resource_properties(
         "AWS::CloudFront::ResponseHeadersPolicy",
@@ -213,6 +225,14 @@ def test_static_website_stack() -> None:
         },
     )
     template.has_resource_properties(
+        "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+        {
+            "CloudFrontOriginAccessIdentityConfig": {
+                "Comment": "Identity for StaticWebsiteStackWebsiteDistributionOrigin11E7F15A9"
+            }
+        },
+    )
+    template.has_resource_properties(
         "AWS::CloudFront::Distribution",
         {
             "DistributionConfig": {
@@ -239,6 +259,7 @@ def test_static_website_stack() -> None:
                         }
                     ],
                     "ResponseHeadersPolicyId": {"Ref": "ResponseHeadersPolicy13DBF9E0"},
+                    "TargetOriginId": "StaticWebsiteStackWebsiteDistributionOrigin11E7F15A9",
                     "ViewerProtocolPolicy": "redirect-to-https",
                 },
                 "Enabled": True,
@@ -252,6 +273,7 @@ def test_static_website_stack() -> None:
                                 "RegionalDomainName",
                             ]
                         },
+                        "Id": "StaticWebsiteStackWebsiteDistributionOrigin11E7F15A9",
                         "S3OriginConfig": {
                             "OriginAccessIdentity": {
                                 "Fn::Join": [
@@ -283,8 +305,6 @@ def test_static_website_stack() -> None:
     template.has_resource_properties(
         "AWS::Route53::RecordSet",
         {
-            "Name": "subdomain.example.com.",
-            "Type": "A",
             "AliasTarget": {
                 "DNSName": {
                     "Fn::GetAtt": ["WebsiteDistribution75DCDA0B", "DomainName"]
@@ -298,13 +318,13 @@ def test_static_website_stack() -> None:
                 },
             },
             "HostedZoneId": "DUMMY",
+            "Name": "subdomain.example.com.",
+            "Type": "A",
         },
     )
     template.has_resource_properties(
         "AWS::Route53::RecordSet",
         {
-            "Name": "subdomain.example.com.",
-            "Type": "AAAA",
             "AliasTarget": {
                 "DNSName": {
                     "Fn::GetAtt": ["WebsiteDistribution75DCDA0B", "DomainName"]
@@ -318,6 +338,8 @@ def test_static_website_stack() -> None:
                 },
             },
             "HostedZoneId": "DUMMY",
+            "Name": "subdomain.example.com.",
+            "Type": "AAAA",
         },
     )
     template.has_resource_properties(
@@ -325,7 +347,7 @@ def test_static_website_stack() -> None:
         {
             "Content": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
-                "S3Key": "391a62714930dde9689f73f04bec0cd78494b9d9b7167446e54c6c939bbbb6b4.zip",
+                "S3Key": "60e7451b2fd9c1305b623d09d2e42ce9024e794b76786e135dd5744dac6d8832.zip",
             },
             "Description": "/opt/awscli/aws",
         },
@@ -340,6 +362,9 @@ def test_static_website_stack() -> None:
                 ]
             },
             "SourceBucketNames": ["cdk-hnb659fds-assets-123456789012-ap-south-1"],
+            "SourceObjectKeys": [
+                "a2e7651ba9be8f958d83028060a1405af378aed354e038f14bb47504ff0a2af5.zip"
+            ],
             "DestinationBucketName": {"Ref": "WebsiteBucket75C24D94"},
             "Prune": True,
             "DistributionId": {"Ref": "WebsiteDistribution75DCDA0B"},
@@ -460,17 +485,22 @@ def test_static_website_stack() -> None:
         {
             "Code": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
-                "S3Key": "f98b78092dcdd31f5e6d47489beb5f804d4835ef86a8085d0a2053cb9ae711da.zip",
+                "S3Key": "2d56e153cac88d3e0c2f842e8e6f6783b8725bf91f95e0673b4725448a56e96d.zip",
             },
+            "Environment": {
+                "Variables": {
+                    "AWS_CA_BUNDLE": "/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem"
+                }
+            },
+            "Handler": "index.handler",
+            "Layers": [{"Ref": "S3DeploymentAwsCliLayer8AAFE44F"}],
             "Role": {
                 "Fn::GetAtt": [
                     "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265",
                     "Arn",
                 ]
             },
-            "Handler": "index.handler",
-            "Layers": [{"Ref": "S3DeploymentAwsCliLayer8AAFE44F"}],
-            "Runtime": "python3.7",
+            "Runtime": "python3.9",
             "Timeout": 900,
         },
     )

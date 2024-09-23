@@ -1,6 +1,7 @@
 """
 Static Website CDK Stage.
 """
+
 from typing import List
 import aws_cdk as cdk
 from constructs import Construct
