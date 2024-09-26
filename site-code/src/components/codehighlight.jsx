@@ -1,7 +1,10 @@
 import React from 'react';
-import { Highlight } from 'prism-react-renderer';
+import { Highlight, Prism } from 'prism-react-renderer';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
+
+(typeof global !== 'undefined' ? global : window).Prism = Prism;
+require('prismjs/components/prism-hcl');
 
 export default function CodeHighlight({ theme, code, language }) {
   const Pre = styled.pre`
