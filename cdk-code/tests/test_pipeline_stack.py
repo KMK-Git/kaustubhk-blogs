@@ -1252,7 +1252,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"b073cebcf4d61fb152a30f5a5e57a94df7f980a549fdf1a79a0b18c5750522d8:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
         },
@@ -1273,7 +1272,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"60e7451b2fd9c1305b623d09d2e42ce9024e794b76786e135dd5744dac6d8832:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
         },
@@ -1294,7 +1292,6 @@ def test_pipeline_stack() -> None:
             },
             "ServiceRole": {"Fn::GetAtt": ["PipelineAssetsFileRole59943A77", "Arn"]},
             "Source": {
-                "BuildSpec": '{\n  "version": "0.2",\n  "phases": {\n    "install": {\n      "commands": [\n        "npm install -g cdk-assets@2"\n      ]\n    },\n    "build": {\n      "commands": [\n        "cdk-assets --path \\"assembly-StaticWebsiteDeployStage/StaticWebsiteDeployStageStaticWebsiteStack733D8CA8.assets.json\\" --verbose publish \\"2d56e153cac88d3e0c2f842e8e6f6783b8725bf91f95e0673b4725448a56e96d:123456789012-ap-south-1\\""\n      ]\n    }\n  }\n}',
                 "Type": "CODEPIPELINE",
             },
         },

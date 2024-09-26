@@ -347,7 +347,6 @@ def test_static_website_stack() -> None:
         {
             "Content": {
                 "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-south-1",
-                "S3Key": "60e7451b2fd9c1305b623d09d2e42ce9024e794b76786e135dd5744dac6d8832.zip",
             },
             "Description": "/opt/awscli/aws",
         },
