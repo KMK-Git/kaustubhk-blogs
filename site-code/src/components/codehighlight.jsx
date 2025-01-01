@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 require('prismjs/components/prism-hcl');
+require('prismjs/components/prism-bash');
 
 export default function CodeHighlight({ theme, code, language }) {
   const Pre = styled.pre`
